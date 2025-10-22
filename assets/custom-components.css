@@ -1,0 +1,419 @@
+/* ====================== STYLECARE - CUSTOM COMPONENTS ====================== */
+/* Premium component styles based on Legs On The Ground design */
+
+/* ========== BUTTONS ========== */
+
+/* Base Button Styles */
+.button,
+.btn,
+button.shopify-payment-button__button,
+.shopify-challenge__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: var(--radius-lg);
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-semibold);
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+    min-height: 42px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    transition: var(--transition-button);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Primary Button - Blush Gradient */
+.button--primary,
+.btn-primary,
+button[type="submit"]:not(.shopify-payment-button__button) {
+    background: linear-gradient(135deg, var(--blush-500) 0%, var(--blush-600) 50%, var(--blush-700) 100%);
+    color: white;
+    box-shadow: var(--shadow-btn-primary);
+    border: none;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.button--primary::before,
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s var(--ease-smooth);
+}
+
+.button--primary:hover,
+.btn-primary:hover,
+button[type="submit"]:not(.shopify-payment-button__button):hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-btn-primary-hover);
+    background: linear-gradient(135deg, var(--blush-600) 0%, var(--blush-700) 50%, var(--blush-800) 100%);
+}
+
+.button--primary:hover::before,
+.btn-primary:hover::before {
+    opacity: 1;
+}
+
+.button--primary:active,
+.btn-primary:active {
+    transform: translateY(0);
+    transition-duration: 0.1s;
+    box-shadow: var(--shadow-btn-primary);
+    background: var(--blush-800);
+}
+
+.button--primary:focus-visible,
+.btn-primary:focus-visible {
+    outline: 3px solid var(--shadow-focus-blush);
+    outline-offset: 2px;
+}
+
+/* Secondary Button - Mauve */
+.button--secondary,
+.btn-secondary {
+    background: linear-gradient(135deg, var(--mauve-600) 0%, var(--mauve-700) 100%);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.button--secondary:hover,
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    background: linear-gradient(135deg, var(--mauve-700) 0%, var(--mauve-800) 100%);
+}
+
+.button--secondary:active,
+.btn-secondary:active {
+    transform: translateY(0);
+}
+
+/* Outline Button */
+.button--outline,
+.btn-outline {
+    background: transparent;
+    color: var(--mauve-700);
+    border: 1.5px solid currentColor;
+    box-shadow: none;
+}
+
+.button--outline:hover,
+.btn-outline:hover {
+    background: var(--mauve-700);
+    color: white;
+    border-color: var(--mauve-700);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Sunset/Accent Button for CTAs */
+.button--accent,
+.btn-accent {
+    background: linear-gradient(135deg, var(--sunset-500) 0%, var(--sunset-600) 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 174, 77, 0.3);
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.button--accent:hover,
+.btn-accent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 174, 77, 0.4);
+    background: linear-gradient(135deg, var(--sunset-600) 0%, var(--sunset-700) 100%);
+}
+
+/* Button Sizes */
+.button--small {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    min-height: 36px;
+}
+
+.button--large {
+    padding: 0.875rem 1.75rem;
+    font-size: 1.0625rem;
+    min-height: 52px;
+}
+
+/* ========== CARDS ========== */
+
+.card {
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-card);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Card hover effect with gradient overlay */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 143, 179, 0.02) 0%, rgba(184, 153, 255, 0.02) 100%);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    border-radius: var(--radius-xl);
+    pointer-events: none;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+/* Product Card Specific */
+.product-card,
+.card-product {
+    border: 1px solid var(--gray-200);
+}
+
+.product-card:hover,
+.card-product:hover {
+    border-color: var(--blush-300);
+}
+
+/* ========== ICON BADGES ========== */
+
+.icon-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, var(--blush-400) 0%, var(--blush-600) 100%);
+    box-shadow: var(--shadow-icon-blush);
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.icon-badge--small {
+    width: 60px;
+    height: 60px;
+    font-size: 1.75rem;
+}
+
+.icon-badge--medium {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+}
+
+.icon-badge--large {
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+}
+
+/* Badge color variants */
+.icon-badge--lavender {
+    background: linear-gradient(135deg, var(--lavender-400) 0%, var(--lavender-600) 100%);
+    box-shadow: var(--shadow-icon-lavender);
+}
+
+.icon-badge--mauve {
+    background: linear-gradient(135deg, var(--mauve-500) 0%, var(--mauve-700) 100%);
+    box-shadow: var(--shadow-icon-mauve);
+}
+
+.icon-badge--sunset {
+    background: linear-gradient(135deg, var(--sunset-400) 0%, var(--sunset-600) 100%);
+    box-shadow: 0 4px 20px rgba(255, 174, 77, 0.35);
+}
+
+/* ========== UTILITY CLASSES ========== */
+
+/* Hover Lift Effects */
+.hover-lift-sm {
+    transition: transform var(--transition-base);
+}
+
+.hover-lift-sm:hover {
+    transform: translateY(-2px);
+}
+
+.hover-lift {
+    transition: transform var(--transition-base);
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+}
+
+.hover-lift-lg {
+    transition: transform var(--transition-base);
+}
+
+.hover-lift-lg:hover {
+    transform: translateY(-6px);
+}
+
+/* Shadow Utilities */
+.shadow-hover:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.shadow-hover-xl:hover {
+    box-shadow: var(--shadow-xl);
+}
+
+/* Dark Context (for hero sections, dark backgrounds) */
+.dark-context h1,
+.dark-context h2,
+.dark-context h3,
+.dark-context h4,
+.dark-context h5,
+.dark-context h6 {
+    color: var(--white) !important;
+}
+
+.dark-context p,
+.dark-context li {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.dark-context .button--outline,
+.dark-context .btn-outline {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+}
+
+.dark-context .button--outline:hover,
+.dark-context .btn-outline:hover {
+    background: white;
+    color: var(--mauve-700);
+    border-color: white;
+}
+
+/* ========== FORM ELEMENTS ========== */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+input[type="search"],
+textarea,
+select {
+    border: 1.5px solid var(--gray-300);
+    border-radius: var(--radius-md);
+    padding: 0.625rem 0.875rem;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--blush-500);
+    box-shadow: var(--shadow-focus-blush);
+}
+
+/* ========== BADGES & TAGS ========== */
+
+.badge,
+.tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-medium);
+    background: var(--blush-100);
+    color: var(--blush-700);
+}
+
+.badge--sale,
+.tag--sale {
+    background: var(--sunset-100);
+    color: var(--sunset-800);
+}
+
+.badge--new,
+.tag--new {
+    background: var(--lavender-100);
+    color: var(--lavender-800);
+}
+
+/* ========== GRADIENTS ========== */
+
+.gradient-blush {
+    background: linear-gradient(135deg, var(--blush-500) 0%, var(--blush-700) 100%);
+}
+
+.gradient-mauve {
+    background: linear-gradient(135deg, var(--mauve-500) 0%, var(--mauve-800) 100%);
+}
+
+.gradient-lavender {
+    background: linear-gradient(135deg, var(--lavender-400) 0%, var(--lavender-700) 100%);
+}
+
+.gradient-sunset {
+    background: linear-gradient(135deg, var(--sunset-400) 0%, var(--sunset-700) 100%);
+}
+
+/* Subtle background gradients */
+.bg-gradient-soft {
+    background: linear-gradient(135deg, var(--blush-50) 0%, var(--lavender-50) 100%);
+}
+
+/* ========== ANIMATIONS ========== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* ========== RESPONSIVE SPACING ========== */
+
+@media (max-width: 768px) {
+    .card {
+        padding: var(--space-lg);
+    }
+    
+    .button,
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+}

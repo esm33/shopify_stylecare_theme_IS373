@@ -1,0 +1,218 @@
+/* ====================== STYLECARE - CUSTOM VARIABLES ====================== */
+/* Based on Legs On The Ground design system */
+
+:root {
+    /* ========== COLOR PALETTE ========== */
+    
+    /* Blush Pink - Primary Brand Color (60% of 60-30-10 rule) */
+    --blush-50: #FFF8F9;
+    --blush-100: #FFEFF2;
+    --blush-200: #FFDDE6;
+    --blush-300: #FFC6D9;
+    --blush-400: #FFABC8;
+    --blush-500: #FF8FB3;     /* Primary blush */
+    --blush-600: #F76E9D;     /* Hover state */
+    --blush-700: #E85B8A;     /* Active state */
+    --blush-800: #D24A77;
+    --blush-900: #B33A63;
+
+    /* Soft Mauve - Secondary (30% usage) */
+    --mauve-50: #FBF7FB;
+    --mauve-100: #F3EAF5;
+    --mauve-200: #E9D6EE;
+    --mauve-300: #D9BFE0;
+    --mauve-400: #C7A7D1;
+    --mauve-500: #B48FC0;
+    --mauve-600: #9F6FA8;
+    --mauve-700: #8B4F8F;     /* For headings */
+    --mauve-800: #6F386E;
+    --mauve-900: #4D1F4E;
+
+    /* Lavender - Accent (10% usage) */
+    --lavender-50: #FCFBFF;
+    --lavender-100: #F3F0FF;
+    --lavender-200: #E6E0FF;
+    --lavender-300: #D8CCFF;
+    --lavender-400: #C8B3FF;
+    --lavender-500: #B899FF;   /* Primary lavender */
+    --lavender-600: #9F77FF;
+    --lavender-700: #7B4BFF;
+    --lavender-800: #5D2BDB;
+    --lavender-900: #40189A;
+
+    /* Sunset - Warm Accent for CTAs */
+    --sunset-50: #FFF8F2;
+    --sunset-100: #FFF0E0;
+    --sunset-200: #FFE0BF;
+    --sunset-300: #FFD19A;
+    --sunset-400: #FFC07A;
+    --sunset-500: #FFAE4D;   /* Primary CTA color */
+    --sunset-600: #FF8F2B;
+    --sunset-700: #F56F19;
+    --sunset-800: #C94F10;
+    --sunset-900: #923708;
+
+    /* Neutrals - Sophisticated Grays */
+    --warm-white: #FFF9F9;
+    --white: #FFFFFF;
+    --off-white: #FFF7F8;
+    --black: #000000;
+    
+    --gray-50: #F7F9FA;
+    --gray-100: #F0F3F5;
+    --gray-200: #E4E9ED;
+    --gray-300: #CBD2D9;
+    --gray-400: #9AA5B1;
+    --gray-500: #7B8794;     /* Body text */
+    --gray-600: #616E7C;
+    --gray-700: #52606D;     /* Headings */
+    --gray-800: #3E4C59;
+    --gray-900: #323F4B;
+
+    /* ========== SPACING SCALE - 8pt Grid ========== */
+    --space-0: 0;
+    --space-xs: 0.25rem;     /* 4px */
+    --space-sm: 0.5rem;      /* 8px */
+    --space-md: 0.75rem;     /* 12px */
+    --space-base: 1rem;      /* 16px */
+    --space-lg: 1.5rem;      /* 24px */
+    --space-xl: 2rem;        /* 32px */
+    --space-2xl: 2.5rem;     /* 40px */
+    --space-3xl: 3rem;       /* 48px */
+    --space-4xl: 4rem;       /* 64px */
+    --space-5xl: 5rem;       /* 80px */
+    --space-6xl: 6rem;       /* 96px */
+    --space-7xl: 8rem;       /* 128px */
+    --space-8xl: 10rem;      /* 160px */
+
+    /* ========== TYPOGRAPHY ========== */
+    
+    /* Font Families */
+    --font-display: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    
+    /* Type Scale - Major Third (1.25) */
+    --text-xs: 0.64rem;      /* 10.24px */
+    --text-sm: 0.8rem;       /* 12.8px */
+    --text-base: 1rem;       /* 16px */
+    --text-lg: 1.25rem;      /* 20px */
+    --text-xl: 1.563rem;     /* 25px */
+    --text-2xl: 1.953rem;    /* 31.25px */
+    --text-3xl: 2.441rem;    /* 39px */
+    --text-4xl: 3.052rem;    /* 48.83px */
+    --text-5xl: 3.815rem;    /* 61px */
+
+    /* Font Weights */
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+
+    /* Line Heights */
+    --leading-tight: 1.25;
+    --leading-snug: 1.375;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+    --leading-loose: 2;
+
+    /* Letter Spacing */
+    --tracking-tight: -0.025em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.025em;
+    --tracking-wider: 0.05em;
+
+    /* ========== BORDER RADIUS ========== */
+    --radius-sm: 0.25rem;    /* 4px */
+    --radius-md: 0.5rem;     /* 8px */
+    --radius-lg: 0.75rem;    /* 12px */
+    --radius-xl: 1rem;       /* 16px */
+    --radius-2xl: 1.5rem;    /* 24px */
+    --radius-full: 9999px;   /* Circular */
+
+    /* ========== SHADOWS - 8 Level System ========== */
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+    /* Focus Shadows */
+    --shadow-focus-blush: 0 0 0 3px rgba(255, 143, 179, 0.15);
+    --shadow-focus-mauve: 0 0 0 3px rgba(148, 79, 150, 0.12);
+    --shadow-focus-lavender: 0 0 0 3px rgba(184, 153, 255, 0.12);
+
+    /* Component Shadows */
+    --shadow-btn-primary: 0 1px 2px rgba(0, 0, 0, 0.04), 0 6px 18px rgba(255, 143, 179, 0.12);
+    --shadow-btn-primary-hover: 0 6px 12px rgba(0, 0, 0, 0.06), 0 16px 32px rgba(255, 143, 179, 0.2);
+    --shadow-card: var(--shadow-lg);
+    --shadow-card-hover: var(--shadow-xl);
+    --shadow-icon-blush: 0 4px 20px rgba(255, 143, 179, 0.35);
+    --shadow-icon-lavender: 0 4px 20px rgba(184, 153, 255, 0.35);
+    --shadow-icon-mauve: 0 4px 20px rgba(148, 79, 150, 0.28);
+
+    /* ========== TRANSITIONS ========== */
+    
+    /* Timing Functions */
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.6, 1);
+    
+    /* Duration Presets */
+    --transition-fast: 150ms;
+    --transition-base: 250ms;
+    --transition-slow: 350ms;
+    --transition-slower: 500ms;
+    
+    /* Combined Transitions */
+    --transition-button: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-card: all 350ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-shadow: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========== GLOBAL RESETS & BASE STYLES ========== */
+
+/* Apply premium typography */
+body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--gray-700);
+    background-color: var(--warm-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings use display font */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+    color: var(--mauve-700);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+}
+
+/* Premium link styling */
+a {
+    color: var(--blush-600);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--blush-700);
+}
+
+/* Selection color */
+::selection {
+    background-color: var(--blush-200);
+    color: var(--mauve-900);
+}
+
+::-moz-selection {
+    background-color: var(--blush-200);
+    color: var(--mauve-900);
+}

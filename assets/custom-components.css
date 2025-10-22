@@ -404,6 +404,68 @@ select:focus {
     animation: fadeIn 0.5s ease-out;
 }
 
+/* ========== HEADER & BANNER CUSTOMIZATION ========== */
+
+/* Pink gradient announcement bar/banner */
+.announcement-bar,
+.announcement-bar-component,
+aside.announcement-bar {
+    background: linear-gradient(135deg, var(--blush-500) 0%, var(--blush-600) 50%, var(--mauve-600) 100%) !important;
+}
+
+.announcement-bar .section-background {
+    background: linear-gradient(135deg, var(--blush-500) 0%, var(--blush-600) 50%, var(--mauve-600) 100%) !important;
+}
+
+/* Ensure text is white and readable on pink background */
+.announcement-bar p,
+.announcement-bar a,
+.announcement-bar span,
+.announcement-bar__slides,
+.announcement-bar .announcement__text {
+    color: white !important;
+    font-weight: 500;
+}
+
+/* Style announcement links */
+.announcement-bar a:hover {
+    color: var(--warm-white) !important;
+    text-decoration: underline;
+}
+
+/* Arrow styling for announcement bar */
+.announcement-bar button,
+.announcement-bar .slideshow-arrow {
+    color: white !important;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+}
+
+.announcement-bar button:hover,
+.announcement-bar .slideshow-arrow:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Main header with subtle pink background */
+header,
+.header,
+#header-group {
+    background: linear-gradient(180deg, var(--blush-50) 0%, var(--warm-white) 100%);
+}
+
+/* Header links styling */
+.header a,
+.header-menu a {
+    color: var(--mauve-700);
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.header a:hover,
+.header-menu a:hover {
+    color: var(--blush-600);
+}
+
 /* ========== RESPONSIVE SPACING ========== */
 
 @media (max-width: 768px) {

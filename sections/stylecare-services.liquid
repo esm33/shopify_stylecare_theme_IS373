@@ -1,0 +1,288 @@
+{%- comment -%}
+  Services Section - Converted from legsontheground.com
+  Features: Service cards with icons, pricing, features list, and CTA buttons
+{%- endcomment -%}
+
+<section class="services section" id="services">
+  <div class="container">
+    {% if section.settings.section_title != blank or section.settings.section_subtitle != blank %}
+      <div class="section-header">
+        {% if section.settings.section_title != blank %}
+          <h2 class="section-title">{{ section.settings.section_title }}</h2>
+        {% endif %}
+        {% if section.settings.section_subtitle != blank %}
+          <p class="section-subtitle">{{ section.settings.section_subtitle }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+    
+    <div class="services-grid grid grid-auto-fit-lg">
+      {% for block in section.blocks %}
+        <div class="service-card card flex flex-col items-center" {{ block.shopify_attributes }}>
+          {% if block.settings.badge != blank %}
+            <span class="service-badge badge badge--sale">{{ block.settings.badge }}</span>
+          {% endif %}
+          
+          {% if block.settings.icon != blank %}
+            <div class="service-icon icon-badge icon-badge--medium">
+              <i class="fas {{ block.settings.icon }}"></i>
+            </div>
+          {% endif %}
+          
+          {% if block.settings.title != blank %}
+            <h3 class="service-title">{{ block.settings.title }}</h3>
+          {% endif %}
+          
+          {% if block.settings.price != blank %}
+            <p class="service-price">{{ block.settings.price }}</p>
+          {% endif %}
+          
+          {% if block.settings.description != blank %}
+            <p class="service-description">{{ block.settings.description }}</p>
+          {% endif %}
+          
+          {% if block.settings.features != blank %}
+            <ul class="service-features">
+              {% assign features = block.settings.features | newline_to_br | split: '<br />' %}
+              {% for feature in features %}
+                {% if feature != blank %}
+                  <li class="flex items-start">
+                    <i class="fas fa-check"></i>
+                    {{ feature | strip }}
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+          
+          {% if block.settings.cta_text != blank %}
+            <a href="{{ block.settings.cta_link | default: '#contact' }}" class="btn btn-outline button--outline">
+              {{ block.settings.cta_text }}
+            </a>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% style %}
+  .services {
+    padding: var(--space-7xl) var(--space-xl);
+    background: linear-gradient(180deg, var(--warm-white) 0%, var(--blush-50) 100%);
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-5xl);
+  }
+  
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .section-subtitle {
+    font-size: 1.125rem;
+    color: var(--gray-600);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .services-grid {
+    gap: var(--space-3xl);
+  }
+  
+  .grid-auto-fit-lg {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  .service-card {
+    position: relative;
+    padding: var(--space-3xl) var(--space-xl);
+    text-align: center;
+  }
+  
+  .service-badge {
+    position: absolute;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    padding: var(--space-xs) var(--space-md);
+    font-size: var(--text-xs);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .service-icon {
+    margin-bottom: var(--space-lg);
+  }
+  
+  .service-title {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-md);
+    color: var(--mauve-700);
+  }
+  
+  .service-price {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--blush-600);
+    margin-bottom: var(--space-md);
+  }
+  
+  .service-description {
+    color: var(--gray-600);
+    margin-bottom: var(--space-lg);
+    line-height: var(--leading-relaxed);
+  }
+  
+  .service-features {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-lg) 0 var(--space-xl) 0;
+    text-align: left;
+    width: 100%;
+  }
+  
+  .service-features li {
+    padding: var(--space-sm) 0;
+    gap: var(--space-md);
+    color: var(--gray-700);
+  }
+  
+  .service-features i {
+    color: var(--blush-500);
+    font-size: 1rem;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .services {
+      padding: var(--space-5xl) var(--space-lg);
+    }
+    
+    .grid-auto-fit-lg {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Services Section",
+  "tag": "section",
+  "class": "section-services",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Our Services"
+    },
+    {
+      "type": "textarea",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "Choose the perfect package for your style transformation"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Service Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge Text",
+          "info": "Optional badge (e.g., 'Most Popular', 'Best Value')"
+        },
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon",
+          "info": "Font Awesome icon class (e.g., fa-sparkles)",
+          "default": "fa-sparkles"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Service Title",
+          "default": "Style Consultation"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "$299"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Personalized style assessment and wardrobe recommendations"
+        },
+        {
+          "type": "textarea",
+          "id": "features",
+          "label": "Features",
+          "info": "One feature per line",
+          "default": "60-minute consultation\nPersonalized style guide\nColor analysis\nWardrobe assessment"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "Button Text",
+          "default": "Get Started"
+        },
+        {
+          "type": "url",
+          "id": "cta_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Services Section",
+      "blocks": [
+        {
+          "type": "service",
+          "settings": {
+            "icon": "fa-sparkles",
+            "title": "Style Quiz",
+            "price": "$99",
+            "description": "Discover your unique style personality",
+            "features": "30-minute online quiz\nPersonalized results\nStyle recommendations\nDigital guide"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "badge": "Most Popular",
+            "icon": "fa-shirt",
+            "title": "Capsule Wardrobe",
+            "price": "$299",
+            "description": "Build a versatile wardrobe foundation",
+            "features": "Wardrobe audit\n20-piece capsule plan\nShopping list\nStyling guide"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "icon": "fa-shopping-bag",
+            "title": "Personal Shopping",
+            "price": "$499",
+            "description": "Expert shopping assistance and styling",
+            "features": "4-hour shopping session\nPersonalized selections\nOutfit coordination\nPurchase guidance"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

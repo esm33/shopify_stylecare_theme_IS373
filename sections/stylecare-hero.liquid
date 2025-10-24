@@ -1,0 +1,322 @@
+{%- comment -%}
+  Hero Section - Converted from legsontheground.com
+  Features: Background image, gradient overlay, CTAs, trust bar
+{%- endcomment -%}
+
+<section 
+  class="hero dark-context flex items-start justify-center" 
+  style="
+    background-image: linear-gradient(rgba(0, 0, 0, {{ section.settings.overlay_opacity | divided_by: 100.0 }}), rgba(0, 0, 0, {{ section.settings.overlay_opacity | divided_by: 100.0 }})), 
+    url('{{ section.settings.hero_image | image_url: width: 2000 }}');
+    background-size: cover;
+    background-position: {{ section.settings.image_position }};
+    min-height: {{ section.settings.section_height }}px;
+  "
+>
+  <div class="container">
+    <div class="hero-content">
+      {% if section.settings.hero_title != blank %}
+        <h1 class="hero-title">{{ section.settings.hero_title }}</h1>
+      {% endif %}
+      
+      {% if section.settings.hero_subtitle != blank %}
+        <p class="hero-subtitle">{{ section.settings.hero_subtitle }}</p>
+      {% endif %}
+      
+      {%- comment -%} CTA Buttons {%- endcomment -%}
+      {% if section.settings.cta_primary_text != blank or section.settings.cta_secondary_text != blank %}
+        <div class="hero-buttons flex justify-center items-center flex-wrap">
+          {% if section.settings.cta_primary_text != blank %}
+            <a href="{{ section.settings.cta_primary_link }}" class="btn btn-primary button--primary">
+              {% if section.settings.cta_primary_icon != blank %}
+                <i class="fas {{ section.settings.cta_primary_icon }}"></i>
+              {% endif %}
+              {{ section.settings.cta_primary_text }}
+            </a>
+          {% endif %}
+          
+          {% if section.settings.cta_secondary_text != blank %}
+            <a href="{{ section.settings.cta_secondary_link }}" class="btn btn-outline button--outline">
+              {% if section.settings.cta_secondary_icon != blank %}
+                <i class="fas {{ section.settings.cta_secondary_icon }}"></i>
+              {% endif %}
+              {{ section.settings.cta_secondary_text }}
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+      
+      {%- comment -%} Trust Bar - Social Proof Elements {%- endcomment -%}
+      {% if section.blocks.size > 0 %}
+        <div class="hero-trust-bar flex justify-center items-center flex-wrap">
+          {% for block in section.blocks %}
+            <div class="trust-item flex items-center" {{ block.shopify_attributes }}>
+              {% if block.settings.icon != blank %}
+                <i class="fas {{ block.settings.icon }}"></i>
+              {% endif %}
+              <span>{{ block.settings.text }}</span>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% style %}
+  .hero {
+    padding: var(--space-8xl) var(--space-xl);
+    position: relative;
+    background-attachment: {{ section.settings.enable_parallax | default: false | if: 'fixed', 'scroll' }};
+  }
+  
+  .hero-content {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-lg);
+    line-height: var(--leading-tight);
+    color: white !important;
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    margin-bottom: var(--space-3xl);
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-buttons {
+    gap: var(--space-lg);
+    margin-bottom: var(--space-4xl);
+  }
+  
+  .hero-trust-bar {
+    gap: var(--space-xl);
+    margin-top: var(--space-4xl);
+    padding-top: var(--space-3xl);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .trust-item {
+    gap: var(--space-sm);
+    color: white;
+    font-weight: 500;
+    font-size: 0.875rem;
+  }
+  
+  .trust-item i {
+    font-size: 1.25rem;
+    color: var(--blush-300);
+  }
+  
+  @media (max-width: 768px) {
+    .hero {
+      padding: var(--space-6xl) var(--space-lg);
+    }
+    
+    .hero-buttons {
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .hero-buttons .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+    
+    .hero-trust-bar {
+      gap: var(--space-md);
+      font-size: 0.75rem;
+    }
+    
+    .trust-item {
+      flex: 0 0 calc(50% - var(--space-md));
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Hero Section",
+  "tag": "section",
+  "class": "section-hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Background Image",
+      "info": "2000 x 1200px recommended"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image Position",
+      "options": [
+        {
+          "value": "center center",
+          "label": "Center"
+        },
+        {
+          "value": "top center",
+          "label": "Top"
+        },
+        {
+          "value": "bottom center",
+          "label": "Bottom"
+        }
+      ],
+      "default": "center center"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay Opacity",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "section_height",
+      "min": 400,
+      "max": 900,
+      "step": 50,
+      "unit": "px",
+      "label": "Section Height",
+      "default": 700
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_parallax",
+      "label": "Enable Parallax Effect",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Title",
+      "default": "Transform Your Style with Expert Guidance"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_subtitle",
+      "label": "Subtitle",
+      "default": "Discover your perfect style with personalized fashion consulting"
+    },
+    {
+      "type": "header",
+      "content": "Primary CTA"
+    },
+    {
+      "type": "text",
+      "id": "cta_primary_text",
+      "label": "Primary Button Text",
+      "default": "Get Started"
+    },
+    {
+      "type": "url",
+      "id": "cta_primary_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "cta_primary_icon",
+      "label": "Primary Button Icon",
+      "info": "Font Awesome icon class (e.g., fa-sparkles)"
+    },
+    {
+      "type": "header",
+      "content": "Secondary CTA"
+    },
+    {
+      "type": "text",
+      "id": "cta_secondary_text",
+      "label": "Secondary Button Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "cta_secondary_link",
+      "label": "Secondary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "cta_secondary_icon",
+      "label": "Secondary Button Icon",
+      "info": "Font Awesome icon class (e.g., fa-arrow-right)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "trust_item",
+      "name": "Trust Badge",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon",
+          "info": "Font Awesome icon class (e.g., fa-shield-alt)",
+          "default": "fa-shield-alt"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Trusted by 100+ Clients"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Section",
+      "blocks": [
+        {
+          "type": "trust_item",
+          "settings": {
+            "icon": "fa-shield-alt",
+            "text": "Fully Insured"
+          }
+        },
+        {
+          "type": "trust_item",
+          "settings": {
+            "icon": "fa-award",
+            "text": "30+ Years Experience"
+          }
+        },
+        {
+          "type": "trust_item",
+          "settings": {
+            "icon": "fa-certificate",
+            "text": "Licensed & Bonded"
+          }
+        },
+        {
+          "type": "trust_item",
+          "settings": {
+            "icon": "fa-users",
+            "text": "100+ Happy Clients"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

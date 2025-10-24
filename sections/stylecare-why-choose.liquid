@@ -38,10 +38,11 @@
             
             {% if block.settings.features != blank %}
               <ul class="why-choose-features">
-                {% assign features = block.settings.features | split: newline %}
+                {% assign features = block.settings.features | newline_to_br | split: '<br />' %}
                 {% for feature in features %}
-                  {% if feature != blank %}
-                    <li><i class="fas fa-check-circle"></i> {{ feature }}</li>
+                  {% assign feature_trimmed = feature | strip %}
+                  {% if feature_trimmed != blank %}
+                    <li><i class="fas fa-check-circle"></i> {{ feature_trimmed }}</li>
                   {% endif %}
                 {% endfor %}
               </ul>

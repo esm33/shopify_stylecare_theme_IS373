@@ -63,12 +63,28 @@
     ></script>
 
     {%- comment -%} Main Content Area {%- endcomment -%}
-    <main id="MainContent" class="main-content" role="main" tabindex="-1">
+    <main 
+      id="MainContent"
+      class="content-for-layout"
+      role="main"
+      tabindex="-1"
+      data-page-transition-enabled="{{ settings.page_transition_enabled }}"
+      data-product-transition="{{ settings.transition_to_main_product }}"
+      data-template="{{ template }}"
+    >
       {{ content_for_layout }}
     </main>
 
     {%- comment -%} Footer Group {%- endcomment -%}
     {% sections 'footer-group' %}
+
+    {% render 'search-modal' %}
+
+    {% if settings.quick_add or settings.mobile_quick_add %}
+      {% render 'quick-add-modal' %}
+    {% endif %}
+
+    {% render 'cart-drawer' %}
 
     {%- comment -%} WhatsApp Floating Button {%- endcomment -%}
     {% if settings.enable_whatsapp_button and settings.whatsapp_number != blank %}
@@ -88,26 +104,5 @@
 
     {%- comment -%} Custom StyleCare JavaScript {%- endcomment -%}
     <script src="{{ 'stylecare-main.js' | asset_url }}" defer></script>
-
-    {% render 'cart-drawer' %}
-  </body>
-</html>
-      id="MainContent"
-      class="content-for-layout"
-      role="main"
-      data-page-transition-enabled="{{ settings.page_transition_enabled }}"
-      data-product-transition="{{ settings.transition_to_main_product }}"
-      data-template="{{ template }}"
-    >
-      {{ content_for_layout }}
-    </main>
-
-    {% sections 'footer-group' %}
-
-    {% render 'search-modal' %}
-
-    {% if settings.quick_add or settings.mobile_quick_add %}
-      {% render 'quick-add-modal' %}
-    {% endif %}
   </body>
 </html>

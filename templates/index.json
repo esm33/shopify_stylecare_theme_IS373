@@ -1,21 +1,16 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "stylecare_hero": {
       "type": "stylecare-hero",
-      "settings": {
-        "hero_image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1920&q=80",
-        "section_height": 600,
-        "overlay_opacity": 40,
-        "enable_parallax": true,
-        "hero_title": "Discover Your Clean Girl Aesthetic",
-        "hero_subtitle": "Take our personalized quiz and get matched with curated capsules perfect for college style",
-        "cta_primary_text": "Take the Quiz",
-        "cta_primary_link": "/pages/quiz",
-        "cta_primary_icon": "fa-magic",
-        "cta_secondary_text": "Shop Collections",
-        "cta_secondary_link": "/collections/all",
-        "cta_secondary_icon": "fa-shopping-bag"
-      },
       "blocks": {
         "trust_1": {
           "type": "trust_item",
@@ -46,14 +41,30 @@
           }
         }
       },
-      "block_order": ["trust_1", "trust_2", "trust_3", "trust_4"]
+      "block_order": [
+        "trust_1",
+        "trust_2",
+        "trust_3",
+        "trust_4"
+      ],
+      "settings": {
+        "hero_image": "shopify://shop_images/minimalist-retail-clothing-display.jpg",
+        "image_position": "center center",
+        "overlay_opacity": 40,
+        "section_height": 600,
+        "enable_parallax": true,
+        "hero_title": "Discover Your Clean Girl Aesthetic",
+        "hero_subtitle": "Take our personalized quiz and get matched with curated capsules perfect for college style",
+        "cta_primary_text": "Get Started",
+        "cta_primary_link": "",
+        "cta_primary_icon": "",
+        "cta_secondary_text": "Learn More",
+        "cta_secondary_link": "",
+        "cta_secondary_icon": ""
+      }
     },
     "stylecare_value_props": {
       "type": "stylecare-value-props",
-      "settings": {
-        "title": "Why Students Love StyleCare",
-        "subtitle": ""
-      },
       "blocks": {
         "prop_1": {
           "type": "value_prop",
@@ -88,63 +99,72 @@
           }
         }
       },
-      "block_order": ["prop_1", "prop_2", "prop_3", "prop_4"]
+      "block_order": [
+        "prop_1",
+        "prop_2",
+        "prop_3",
+        "prop_4"
+      ],
+      "settings": {
+        "title": "Why Students Love StyleCare",
+        "subtitle": ""
+      }
     },
     "stylecare_services": {
       "type": "stylecare-services",
-      "settings": {
-        "section_title": "Our Style Services",
-        "section_subtitle": "Find your perfect capsule, rent designer pieces, or get personalized styling help"
-      },
       "blocks": {
         "service_1": {
           "type": "service",
           "settings": {
             "badge": "Most Popular",
-            "service_icon": "fa-sparkles",
-            "service_title": "Style Quiz & Capsule",
-            "service_price": "Free",
-            "service_description": "Take our quiz and get matched with your perfect capsule wardrobe and influencer recommendations",
-            "service_features": "2-minute personalized quiz\nCurated capsule matches\nInfluencer style profiles\nShoppable recommendations",
-            "service_cta_text": "Take the Quiz",
-            "service_cta_link": "/pages/quiz"
+            "icon": "fa-sparkles",
+            "title": "Style Consultation",
+            "price": "$299",
+            "description": "Personalized style assessment and wardrobe recommendations",
+            "features": "60-minute consultation\nPersonalized style guide\nColor analysis\nWardrobe assessment",
+            "cta_text": "Get Started",
+            "cta_link": ""
           }
         },
         "service_2": {
           "type": "service",
           "settings": {
             "badge": "",
-            "service_icon": "fa-tshirt",
-            "service_title": "Designer Rentals",
-            "service_price": "From $29",
-            "service_description": "Rent high-end pieces for special occasions or everyday luxury without the commitment",
-            "service_features": "Designer brands\nFlexible rental periods\nFree shipping both ways\nProfessional cleaning included",
-            "service_cta_text": "Browse Rentals",
-            "service_cta_link": "/collections/rentals"
+            "icon": "fa-sparkles",
+            "title": "Style Consultation",
+            "price": "$299",
+            "description": "Personalized style assessment and wardrobe recommendations",
+            "features": "60-minute consultation\nPersonalized style guide\nColor analysis\nWardrobe assessment",
+            "cta_text": "Get Started",
+            "cta_link": ""
           }
         },
         "service_3": {
           "type": "service",
           "settings": {
             "badge": "",
-            "service_icon": "fa-comments",
-            "service_title": "1-on-1 Styling",
-            "service_price": "$49",
-            "service_description": "Work directly with our stylists for personalized outfit curation and shopping assistance",
-            "service_features": "30-minute video consultation\nCustom outfit recommendations\nBudget-conscious suggestions\nFollow-up support",
-            "service_cta_text": "Book Session",
-            "service_cta_link": "/pages/book-styling"
+            "icon": "fa-sparkles",
+            "title": "Style Consultation",
+            "price": "$299",
+            "description": "Personalized style assessment and wardrobe recommendations",
+            "features": "60-minute consultation\nPersonalized style guide\nColor analysis\nWardrobe assessment",
+            "cta_text": "Get Started",
+            "cta_link": ""
           }
         }
       },
-      "block_order": ["service_1", "service_2", "service_3"]
+      "block_order": [
+        "service_1",
+        "service_2",
+        "service_3"
+      ],
+      "settings": {
+        "section_title": "Our Style Services",
+        "section_subtitle": "Find your perfect capsule, rent designer pieces, or get personalized styling help"
+      }
     },
     "stylecare_why_choose": {
       "type": "stylecare-why-choose",
-      "settings": {
-        "title": "Why Choose StyleCare",
-        "subtitle": "Thoughtful styling for the clean girl aesthetic"
-      },
       "blocks": {
         "reason_1": {
           "type": "reason",
@@ -174,14 +194,18 @@
           }
         }
       },
-      "block_order": ["reason_1", "reason_2", "reason_3"]
+      "block_order": [
+        "reason_1",
+        "reason_2",
+        "reason_3"
+      ],
+      "settings": {
+        "title": "Why Choose StyleCare",
+        "subtitle": "Thoughtful styling for the clean girl aesthetic"
+      }
     },
     "stylecare_testimonials": {
       "type": "stylecare-testimonials",
-      "settings": {
-        "title": "What Our Clients Say",
-        "subtitle": "Real experiences from students and customers we've styled"
-      },
       "blocks": {
         "testimonial_1": {
           "type": "testimonial",
@@ -211,14 +235,18 @@
           }
         }
       },
-      "block_order": ["testimonial_1", "testimonial_2", "testimonial_3"]
+      "block_order": [
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3"
+      ],
+      "settings": {
+        "title": "What Our Clients Say",
+        "subtitle": "Real experiences from students and customers we've styled"
+      }
     },
     "stylecare_faq": {
       "type": "stylecare-faq",
-      "settings": {
-        "title": "Frequently Asked Questions",
-        "subtitle": "Answers about StyleCare, the quiz, and clean girl styling"
-      },
       "blocks": {
         "faq_1": {
           "type": "faq_item",
@@ -256,7 +284,17 @@
           }
         }
       },
-      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5"]
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5"
+      ],
+      "settings": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Answers about StyleCare, the quiz, and clean girl styling"
+      }
     },
     "stylecare_contact": {
       "type": "stylecare-contact",
@@ -272,13 +310,6 @@
     },
     "stylecare_cta": {
       "type": "stylecare-cta",
-      "settings": {
-        "overlay_opacity": 50,
-        "title": "Ready to Transform Your Style?",
-        "subtitle": "Take our quiz and discover your perfect clean girl aesthetic today",
-        "guarantee_icon": "shield-alt",
-        "guarantee_text": "100% Satisfaction Guaranteed"
-      },
       "blocks": {
         "cta_button_1": {
           "type": "button",
@@ -299,7 +330,17 @@
           }
         }
       },
-      "block_order": ["cta_button_1", "cta_button_2"]
+      "block_order": [
+        "cta_button_1",
+        "cta_button_2"
+      ],
+      "settings": {
+        "overlay_opacity": 50,
+        "title": "Ready to Transform Your Style?",
+        "subtitle": "Take our quiz and discover your perfect clean girl aesthetic today",
+        "guarantee_icon": "shield-alt",
+        "guarantee_text": "100% Satisfaction Guaranteed"
+      }
     }
   },
   "order": [

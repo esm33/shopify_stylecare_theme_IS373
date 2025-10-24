@@ -1,0 +1,269 @@
+{% comment %}
+  Why Choose Section - StyleCare
+  Feature cards with images showcasing key differentiators
+{% endcomment %}
+
+<section class="why-choose" id="why-choose-{{ section.id }}">
+  <div class="container">
+    <div class="section-header text-center">
+      {% if section.settings.title != blank %}
+        <h2 class="section-title">{{ section.settings.title }}</h2>
+      {% endif %}
+      {% if section.settings.subtitle != blank %}
+        <p class="section-subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+    </div>
+
+    <div class="why-choose-grid">
+      {% for block in section.blocks %}
+        <div class="why-choose-card" {{ block.shopify_attributes }}>
+          {% if block.settings.image != blank %}
+            <div class="why-choose-image">
+              {{ block.settings.image | image_url: width: 600 | image_tag: 
+                loading: 'lazy',
+                alt: block.settings.image_alt,
+                widths: '300, 400, 500, 600'
+              }}
+            </div>
+          {% endif %}
+          
+          <div class="why-choose-content">
+            {% if block.settings.title != blank %}
+              <h3 class="why-choose-title">{{ block.settings.title }}</h3>
+            {% endif %}
+            
+            {% if block.settings.description != blank %}
+              <p class="why-choose-description">{{ block.settings.description }}</p>
+            {% endif %}
+            
+            {% if block.settings.features != blank %}
+              <ul class="why-choose-features">
+                {% assign features = block.settings.features | split: newline %}
+                {% for feature in features %}
+                  {% if feature != blank %}
+                    <li><i class="fas fa-check-circle"></i> {{ feature }}</li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% style %}
+  .why-choose {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, rgba(255, 143, 179, 0.05) 0%, rgba(184, 153, 255, 0.05) 100%);
+  }
+
+  .why-choose-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-2xl);
+    margin-top: var(--space-2xl);
+  }
+
+  .why-choose-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-base);
+  }
+
+  .why-choose-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-2xl);
+  }
+
+  .why-choose-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .why-choose-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+  }
+
+  .why-choose-card:hover .why-choose-image::after {
+    opacity: 1;
+  }
+
+  .why-choose-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-base);
+  }
+
+  .why-choose-card:hover .why-choose-image img {
+    transform: scale(1.05);
+  }
+
+  .why-choose-content {
+    padding: var(--space-xl);
+  }
+
+  .why-choose-title {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--mauve-800);
+    margin-bottom: var(--space-md);
+    font-family: var(--font-display);
+  }
+
+  .why-choose-description {
+    font-size: var(--text-base);
+    color: var(--mauve-600);
+    line-height: 1.7;
+    margin-bottom: var(--space-lg);
+  }
+
+  .why-choose-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .why-choose-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    padding: var(--space-sm) 0;
+    color: var(--mauve-700);
+    font-size: var(--text-sm);
+  }
+
+  .why-choose-features li i {
+    color: var(--blush-500);
+    margin-top: 0.2em;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .why-choose {
+      padding: var(--space-2xl) 0;
+    }
+
+    .why-choose-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+
+    .why-choose-image {
+      height: 200px;
+    }
+
+    .why-choose-content {
+      padding: var(--space-lg);
+    }
+
+    .why-choose-title {
+      font-size: var(--text-xl);
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Why Choose Us",
+  "tag": "section",
+  "class": "section-why-choose",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Why Choose StyleCare"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Section Subtitle",
+      "default": "Thoughtful styling for the clean girl aesthetic"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "reason",
+      "name": "Reason",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image Alt Text",
+          "info": "Describe the image for accessibility"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Curated Collections"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Every piece is hand-picked to fit the clean girl aesthetic — minimal, elevated, and effortlessly chic."
+        },
+        {
+          "type": "textarea",
+          "id": "features",
+          "label": "Features",
+          "info": "One feature per line. Will display with checkmarks.",
+          "default": "Minimal silhouettes\nNeutral color palettes\nElevated basics\nVersatile pieces"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Choose Us",
+      "blocks": [
+        {
+          "type": "reason",
+          "settings": {
+            "title": "Curated for College",
+            "description": "Every capsule is designed specifically for student lifestyles and budgets — no guesswork, just wearable style.",
+            "features": "Budget-friendly pricing\nVersatile pieces\nEasy to mix & match\nPerfect for campus life"
+          }
+        },
+        {
+          "type": "reason",
+          "settings": {
+            "title": "Quiz-Powered Matching",
+            "description": "Our style quiz uses your preferences to match you with the perfect capsule and influencers who share your aesthetic.",
+            "features": "2-minute quick quiz\nPersonalized results\nInfluencer matches\nShoppable recommendations"
+          }
+        },
+        {
+          "type": "reason",
+          "settings": {
+            "title": "Clean Girl Aesthetic",
+            "description": "We specialize in the minimal, polished, effortlessly chic aesthetic that's taking over campus style.",
+            "features": "Neutral palettes\nMinimal silhouettes\nElevated basics\nTimeless pieces"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

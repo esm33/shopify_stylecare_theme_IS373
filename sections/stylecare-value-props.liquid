@@ -1,0 +1,203 @@
+{% comment %}
+  Value Propositions Section - StyleCare
+  Grid of icon-based value props
+{% endcomment %}
+
+<section class="value-props" id="value-props-{{ section.id }}">
+  <div class="container">
+    {% if section.settings.title != blank %}
+      <div class="section-header text-center">
+        <h2 class="section-title">{{ section.settings.title }}</h2>
+        {% if section.settings.subtitle != blank %}
+          <p class="section-subtitle">{{ section.settings.subtitle }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+    
+    <div class="value-props-grid">
+      {% for block in section.blocks %}
+        <div class="value-prop-card" {{ block.shopify_attributes }}>
+          {% if block.settings.icon != blank %}
+            <div class="value-prop-icon">
+              <i class="fas fa-{{ block.settings.icon }}"></i>
+            </div>
+          {% endif %}
+          
+          {% if block.settings.title != blank %}
+            <h3 class="value-prop-title">{{ block.settings.title }}</h3>
+          {% endif %}
+          
+          {% if block.settings.description != blank %}
+            <p class="value-prop-description">{{ block.settings.description }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% style %}
+  .value-props {
+    padding: var(--space-3xl) 0;
+    background: white;
+  }
+
+  .value-props-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-xl);
+    margin-top: var(--space-2xl);
+  }
+
+  .value-prop-card {
+    text-align: center;
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    background: linear-gradient(135deg, rgba(255, 143, 179, 0.03) 0%, rgba(184, 153, 255, 0.03) 100%);
+  }
+
+  .value-prop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+    background: linear-gradient(135deg, rgba(255, 143, 179, 0.08) 0%, rgba(184, 153, 255, 0.08) 100%);
+  }
+
+  .value-prop-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--space-lg);
+    background: linear-gradient(135deg, var(--blush-500) 0%, var(--lavender-500) 100%);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-3xl);
+    color: white;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+  }
+
+  .value-prop-card:hover .value-prop-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .value-prop-title {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--mauve-800);
+    margin-bottom: var(--space-sm);
+    font-family: var(--font-display);
+  }
+
+  .value-prop-description {
+    font-size: var(--text-base);
+    color: var(--mauve-600);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .value-props {
+      padding: var(--space-2xl) 0;
+    }
+
+    .value-props-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+
+    .value-prop-icon {
+      width: 60px;
+      height: 60px;
+      font-size: var(--text-2xl);
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Value Propositions",
+  "tag": "section",
+  "class": "section-value-props",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title (optional)",
+      "default": "Why Students Love Us"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Section Subtitle (optional)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value_prop",
+      "name": "Value Prop",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon",
+          "default": "star",
+          "info": "Font Awesome icon name (e.g., star, heart, check-circle, shield-alt)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Personalized Styling"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Get style recommendations tailored to your aesthetic and budget"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Value Propositions",
+      "blocks": [
+        {
+          "type": "value_prop",
+          "settings": {
+            "icon": "magic",
+            "title": "Personalized Quiz",
+            "description": "Take our 2-minute style quiz to find your perfect clean girl aesthetic"
+          }
+        },
+        {
+          "type": "value_prop",
+          "settings": {
+            "icon": "tags",
+            "title": "Budget-Friendly",
+            "description": "Curated capsules and bundles perfect for college budgets"
+          }
+        },
+        {
+          "type": "value_prop",
+          "settings": {
+            "icon": "user-friends",
+            "title": "Influencer Matches",
+            "description": "Discover influencers who match your style and shop their looks"
+          }
+        },
+        {
+          "type": "value_prop",
+          "settings": {
+            "icon": "clock",
+            "title": "Save Time",
+            "description": "No more endless scrolling — we find the perfect pieces for you"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -102,6 +102,9 @@
     position: relative;
     padding: var(--space-3xl) var(--space-xl);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .service-badge {
@@ -123,40 +126,50 @@
     font-size: var(--text-2xl);
     margin-bottom: var(--space-md);
     color: var(--mauve-700);
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
   }
   
   .service-price {
     font-size: var(--text-xl);
     font-weight: var(--font-weight-bold);
     color: var(--blush-600);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-lg);
   }
   
   .service-description {
-    color: var(--gray-600);
-    margin-bottom: var(--space-lg);
-    line-height: var(--leading-relaxed);
+    color: var(--mauve-600);
+    margin-bottom: var(--space-xl);
+    line-height: 1.6;
+    max-width: 400px;
   }
   
   .service-features {
     list-style: none;
     padding: 0;
-    margin: var(--space-lg) 0 var(--space-xl) 0;
+    margin: 0 0 var(--space-xl) 0;
     text-align: left;
     width: 100%;
+    max-width: 350px;
   }
   
   .service-features li {
     padding: var(--space-sm) 0;
-    gap: var(--space-md);
-    color: var(--gray-700);
+    gap: var(--space-sm);
+    color: var(--mauve-700);
+    display: flex;
+    align-items: flex-start;
   }
   
   .service-features i {
     color: var(--blush-500);
-    font-size: 1rem;
+    font-size: 0.875rem;
     margin-top: 0.25rem;
     flex-shrink: 0;
+  }
+
+  .service-card .btn {
+    margin-top: auto;
   }
   
   @media (max-width: 768px) {

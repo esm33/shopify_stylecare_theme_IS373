@@ -1,0 +1,205 @@
+{% comment %}
+  FAQ Section - StyleCare
+  Accordion-style frequently asked questions
+{% endcomment %}
+
+<section class="faq-section" id="faq-{{ section.id }}">
+  <div class="container">
+    <div class="section-header text-center">
+      {% if section.settings.title != blank %}
+        <h2 class="section-title">{{ section.settings.title }}</h2>
+      {% endif %}
+      {% if section.settings.subtitle != blank %}
+        <p class="section-subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+    </div>
+
+    <div class="faq-container">
+      {% for block in section.blocks %}
+        <div class="faq-item" {{ block.shopify_attributes }}>
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span>{{ block.settings.question }}</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              {{ block.settings.answer }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% style %}
+  .faq-section {
+    padding: var(--space-3xl) 0;
+    background: white;
+  }
+
+  .faq-container {
+    max-width: 800px;
+    margin: var(--space-2xl) auto 0;
+  }
+
+  .faq-item {
+    background: white;
+    border: 2px solid var(--blush-100);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-md);
+    overflow: hidden;
+    transition: all var(--transition-base);
+  }
+
+  .faq-item:hover {
+    border-color: var(--blush-300);
+    box-shadow: var(--shadow-md);
+  }
+
+  .faq-question {
+    width: 100%;
+    padding: var(--space-lg) var(--space-xl);
+    background: transparent;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+    cursor: pointer;
+    text-align: left;
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--mauve-800);
+    transition: all var(--transition-base);
+    font-family: var(--font-display);
+  }
+
+  .faq-question:hover {
+    color: var(--blush-600);
+  }
+
+  .faq-question i {
+    font-size: var(--text-base);
+    color: var(--blush-500);
+    transition: transform var(--transition-base);
+    flex-shrink: 0;
+  }
+
+  .faq-item.active .faq-question i {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s var(--easing-smooth);
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 500px;
+  }
+
+  .faq-answer-content {
+    padding: 0 var(--space-xl) var(--space-lg);
+    color: var(--mauve-700);
+    line-height: 1.7;
+  }
+
+  .faq-answer-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .faq-section {
+      padding: var(--space-2xl) 0;
+    }
+
+    .faq-question {
+      padding: var(--space-md) var(--space-lg);
+      font-size: var(--text-base);
+    }
+
+    .faq-answer-content {
+      padding: 0 var(--space-lg) var(--space-md);
+      font-size: var(--text-sm);
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "FAQ",
+  "tag": "section",
+  "class": "section-faq",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Section Subtitle",
+      "default": "Answers about StyleCare, the quiz, and clean girl styling"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Your question here?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Your answer here. You can use rich text formatting.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "blocks": [
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the \"clean girl\" aesthetic?",
+            "answer": "<p>The clean girl aesthetic focuses on minimal silhouettes, neutral palettes, elevated basics, and understated accessories. It's about effortless polish rather than loud trends.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does the style quiz take?",
+            "answer": "<p>Our quiz is designed to be quick — about 2-4 minutes. It asks a few visual preference and lifestyle questions to match you with the right capsule and influencers.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are the recommended items budget-friendly?",
+            "answer": "<p>Yes. We prioritize affordable stores and curated bundles suitable for college budgets while keeping the aesthetic polished and wearable.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I return or exchange items bought via partner links?",
+            "answer": "<p>Returns and exchanges follow the partner store's policies. We include return information where available and provide styling suggestions so you buy with confidence.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

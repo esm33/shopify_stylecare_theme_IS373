@@ -1,0 +1,392 @@
+{% comment %}
+  Contact Form Section - StyleCare
+  Full contact form with Shopify form handling and contact info sidebar
+{% endcomment %}
+
+<section class="contact-form-section" id="contact-{{ section.id }}">
+  <div class="container">
+    <div class="section-header text-center">
+      {% if section.settings.title != blank %}
+        <h2 class="section-title">{{ section.settings.title }}</h2>
+      {% endif %}
+      {% if section.settings.subtitle != blank %}
+        <p class="section-subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+    </div>
+
+    <div class="contact-form-wrapper">
+      <div class="contact-form-content">
+        {% form 'contact' %}
+          {% if form.posted_successfully? %}
+            <div class="form-success" role="alert">
+              <i class="fas fa-check-circle"></i>
+              <p>{{ section.settings.success_message }}</p>
+            </div>
+          {% endif %}
+
+          {% if form.errors %}
+            <div class="form-error" role="alert">
+              <i class="fas fa-exclamation-circle"></i>
+              <p>{{ form.errors | default_errors }}</p>
+            </div>
+          {% endif %}
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-name">Full Name <span class="required">*</span></label>
+              <input
+                type="text"
+                id="contact-name"
+                name="contact[name]"
+                required
+                placeholder="John Smith"
+                value="{% if form.name %}{{ form.name }}{% endif %}">
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email">Email Address <span class="required">*</span></label>
+              <input
+                type="email"
+                id="contact-email"
+                name="contact[email]"
+                required
+                placeholder="john@example.com"
+                value="{% if form.email %}{{ form.email }}{% endif %}">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-phone">Phone Number (optional)</label>
+              <input
+                type="tel"
+                id="contact-phone"
+                name="contact[phone]"
+                placeholder="(555) 555-1234"
+                value="{% if form.phone %}{{ form.phone }}{% endif %}">
+            </div>
+
+            <div class="form-group">
+              <label for="contact-campus">Campus / City</label>
+              <input
+                type="text"
+                id="contact-campus"
+                name="contact[campus]"
+                placeholder="e.g., Boston, Campus Name (optional)"
+                value="{% if form.campus %}{{ form.campus }}{% endif %}">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-service">Service Interested In</label>
+            <select id="contact-service" name="contact[service]">
+              <option value="">Select a service...</option>
+              <option value="quiz-help">Quiz & Style Match</option>
+              <option value="capsule-request">Request a Capsule</option>
+              <option value="collab">Influencer Collab / Partnerships</option>
+              <option value="feedback">Feedback</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-message">Message <span class="required">*</span></label>
+            <textarea
+              id="contact-message"
+              name="contact[body]"
+              rows="5"
+              required
+              placeholder="Tell us what styling help you need (quiz, capsule, shopping, rentals)...">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </div>
+        {% endform %}
+      </div>
+
+      <div class="contact-info-sidebar">
+        <h3>Direct Contact</h3>
+
+        {% if section.settings.phone != blank %}
+          <div class="contact-info-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <strong>Call Us</strong>
+              <a href="tel:{{ section.settings.phone | replace: ' ', '' | replace: '(', '' | replace: ')', '' | replace: '-', '' }}">
+                {{ section.settings.phone }}
+              </a>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if section.settings.email != blank %}
+          <div class="contact-info-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <strong>Email Us</strong>
+              <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if section.settings.whatsapp != blank %}
+          <div class="contact-info-item">
+            <i class="fab fa-whatsapp"></i>
+            <div>
+              <strong>WhatsApp</strong>
+              <a href="https://wa.me/{{ section.settings.whatsapp }}" target="_blank" rel="noopener">Chat with us</a>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if section.settings.location != blank %}
+          <div class="contact-info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <strong>Location</strong>
+              <p>{{ section.settings.location }}</p>
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="response-time">
+          <i class="fas fa-clock"></i>
+          <p><strong>Response Time:</strong> Within 24 hours</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% style %}
+  .contact-form-section {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, rgba(255, 143, 179, 0.03) 0%, rgba(184, 153, 255, 0.03) 100%);
+  }
+
+  .contact-form-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-2xl);
+    margin-top: var(--space-2xl);
+  }
+
+  .contact-form-content {
+    background: white;
+    padding: var(--space-2xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+  }
+
+  .form-success {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%);
+    border: 2px solid rgb(34, 197, 94);
+    color: rgb(21, 128, 61);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-xl);
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .form-success i {
+    font-size: var(--text-xl);
+  }
+
+  .form-error {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%);
+    border: 2px solid rgb(239, 68, 68);
+    color: rgb(185, 28, 28);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-xl);
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .form-error i {
+    font-size: var(--text-xl);
+  }
+
+  .required {
+    color: rgb(239, 68, 68);
+  }
+
+  .contact-info-sidebar {
+    background: white;
+    padding: var(--space-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+  }
+
+  .contact-info-sidebar h3 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--mauve-800);
+    margin-bottom: var(--space-lg);
+    font-family: var(--font-display);
+  }
+
+  .contact-info-item {
+    display: flex;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--blush-100);
+  }
+
+  .contact-info-item:last-of-type {
+    border-bottom: none;
+  }
+
+  .contact-info-item i {
+    font-size: var(--text-xl);
+    color: var(--blush-500);
+    flex-shrink: 0;
+    width: 24px;
+  }
+
+  .contact-info-item strong {
+    display: block;
+    color: var(--mauve-800);
+    margin-bottom: var(--space-xs);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .contact-info-item a {
+    color: var(--blush-600);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .contact-info-item a:hover {
+    color: var(--blush-700);
+    text-decoration: underline;
+  }
+
+  .contact-info-item p {
+    color: var(--mauve-600);
+    margin: 0;
+  }
+
+  .response-time {
+    display: flex;
+    gap: var(--space-md);
+    background: linear-gradient(135deg, rgba(255, 143, 179, 0.1) 0%, rgba(184, 153, 255, 0.1) 100%);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    margin-top: var(--space-lg);
+  }
+
+  .response-time i {
+    font-size: var(--text-lg);
+    color: var(--lavender-600);
+    flex-shrink: 0;
+  }
+
+  .response-time p {
+    margin: 0;
+    color: var(--mauve-700);
+    font-size: var(--text-sm);
+  }
+
+  @media (max-width: 992px) {
+    .contact-form-wrapper {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-info-sidebar {
+      position: static;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .contact-form-section {
+      padding: var(--space-2xl) 0;
+    }
+
+    .contact-form-content {
+      padding: var(--space-lg);
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Contact Form",
+  "tag": "section",
+  "class": "section-contact",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Get In Touch"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Section Subtitle",
+      "default": "Fill out the form below and we'll get back to you within 24 hours"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success Message",
+      "default": "Thank you for contacting us! We'll get back to you within 24 hours."
+    },
+    {
+      "type": "header",
+      "content": "Contact Information"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone Number",
+      "default": "(555) 555-1234"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email Address",
+      "default": "hello@stylecare.com"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp",
+      "label": "WhatsApp Number",
+      "info": "Include country code (e.g., 15555551234)",
+      "default": "15555551234"
+    },
+    {
+      "type": "text",
+      "id": "location",
+      "label": "Location",
+      "default": "Boston, MA"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Form"
+    }
+  ]
+}
+{% endschema %}

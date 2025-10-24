@@ -3,6 +3,7 @@
     "stylecare_hero": {
       "type": "stylecare-hero",
       "settings": {
+        "background_image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1920&q=80",
         "section_height": 600,
         "overlay_opacity": 40,
         "enable_parallax": true,

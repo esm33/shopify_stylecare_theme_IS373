@@ -4,15 +4,24 @@
   lang="{{ request.locale.iso_code }}"
 >
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {%- comment -%} Favicon {%- endcomment -%}
     {%- if settings.favicon != blank -%}
       <link
         rel="icon"
         type="image/png"
         href="{{ settings.favicon | image_url: width: 32, height: 32 }}"
       >
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="{{ settings.favicon | image_url: width: 180, height: 180 }}"
+      >
     {%- endif -%}
 
-    {% comment %} This a way to wait for main content to load when navigating to a new page so that the view transitions can work consistently {% endcomment %}
+    {%- comment -%} View transitions for smooth navigation {%- endcomment -%}
     <link
       rel="expect"
       href="#MainContent"
@@ -27,6 +36,9 @@
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-schemes' -%}
 
+    {%- comment -%} Font Awesome for Icons {%- endcomment -%}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}
     {% endif %}
@@ -35,7 +47,10 @@
   </head>
 
   <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
+    {%- comment -%} Skip to Content Link for Accessibility {%- endcomment -%}
     {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
+    
+    {%- comment -%} Header Group with Announcement Bar {%- endcomment -%}
     <div id="header-group">
       {% sections 'header-group' %}
     </div>
@@ -47,7 +62,36 @@
       blocking="render"
     ></script>
 
-    <main
+    {%- comment -%} Main Content Area {%- endcomment -%}
+    <main id="MainContent" class="main-content" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    {%- comment -%} Footer Group {%- endcomment -%}
+    {% sections 'footer-group' %}
+
+    {%- comment -%} WhatsApp Floating Button {%- endcomment -%}
+    {% if settings.enable_whatsapp_button and settings.whatsapp_number != blank %}
+      <a href="https://wa.me/{{ settings.whatsapp_number | remove: ' ' | remove: '-' | remove: '(' | remove: ')' }}?text={{ settings.whatsapp_message | url_encode }}" 
+         class="whatsapp-float" 
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+      </a>
+    {% endif %}
+
+    {%- comment -%} Scroll to Top Button {%- endcomment -%}
+    <button class="scroll-top" aria-label="Scroll to top" type="button">
+      <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    {%- comment -%} Custom StyleCare JavaScript {%- endcomment -%}
+    <script src="{{ 'stylecare-main.js' | asset_url }}" defer></script>
+
+    {% render 'cart-drawer' %}
+  </body>
+</html>
       id="MainContent"
       class="content-for-layout"
       role="main"

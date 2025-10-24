@@ -1,0 +1,261 @@
+{% comment %}
+  CTA Section - StyleCare
+  Call-to-action banner with background image and buttons
+{% endcomment %}
+
+<section class="cta-section" id="cta-{{ section.id }}">
+  <div class="cta-overlay"></div>
+  <div class="container">
+    <div class="cta-content">
+      {% if section.settings.title != blank %}
+        <h2 class="cta-title">{{ section.settings.title }}</h2>
+      {% endif %}
+      
+      {% if section.settings.subtitle != blank %}
+        <p class="cta-subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+      
+      {% if section.blocks.size > 0 %}
+        <div class="cta-buttons">
+          {% for block in section.blocks %}
+            {% if block.settings.button_text != blank and block.settings.button_link != blank %}
+              <a href="{{ block.settings.button_link }}" class="btn btn-{{ block.settings.button_style }}" {{ block.shopify_attributes }}>
+                {% if block.settings.button_icon != blank %}
+                  <i class="fas fa-{{ block.settings.button_icon }}"></i>
+                {% endif %}
+                {{ block.settings.button_text }}
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+      
+      {% if section.settings.guarantee_text != blank %}
+        <p class="cta-guarantee">
+          {% if section.settings.guarantee_icon != blank %}
+            <i class="fas fa-{{ section.settings.guarantee_icon }}"></i>
+          {% endif %}
+          {{ section.settings.guarantee_text }}
+        </p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% style %}
+  .cta-section {
+    padding: var(--space-4xl) 0;
+    position: relative;
+    text-align: center;
+    color: white;
+    {% if section.settings.background_image != blank %}
+      background-image: url('{{ section.settings.background_image | img_url: 'master' }}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    {% else %}
+      background: linear-gradient(135deg, var(--blush-600) 0%, var(--mauve-700) 50%, var(--lavender-700) 100%);
+    {% endif %}
+  }
+
+  .cta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, {{ section.settings.overlay_opacity | divided_by: 100.0 }});
+    z-index: 1;
+  }
+
+  .cta-section .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-title {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-lg);
+    font-family: var(--font-display);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .cta-subtitle {
+    font-size: var(--text-xl);
+    line-height: 1.6;
+    margin-bottom: var(--space-2xl);
+    opacity: 0.95;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--space-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-xl);
+  }
+
+  .cta-buttons .btn {
+    min-width: 180px;
+  }
+
+  .cta-guarantee {
+    font-size: var(--text-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    opacity: 0.9;
+  }
+
+  .cta-guarantee i {
+    font-size: var(--text-lg);
+  }
+
+  @media (max-width: 768px) {
+    .cta-section {
+      padding: var(--space-3xl) 0;
+    }
+
+    .cta-title {
+      font-size: var(--text-2xl);
+    }
+
+    .cta-subtitle {
+      font-size: var(--text-lg);
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-buttons .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "CTA Banner",
+  "tag": "section",
+  "class": "section-cta",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image",
+      "info": "Optional. If no image is selected, a gradient background will be used."
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay Opacity",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "default": 50,
+      "unit": "%",
+      "info": "Dark overlay on background image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Ready to Transform Your Style?"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Take our quiz and discover your perfect clean girl aesthetic"
+    },
+    {
+      "type": "header",
+      "content": "Guarantee Badge"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_icon",
+      "label": "Guarantee Icon",
+      "default": "shield-alt",
+      "info": "Font Awesome icon name (e.g., shield-alt, check-circle, star)"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Guarantee Text",
+      "default": "100% Satisfaction Guaranteed"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Take the Quiz"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "Button Style",
+          "options": [
+            { "value": "primary", "label": "Primary (Pink)" },
+            { "value": "secondary", "label": "Secondary (White)" },
+            { "value": "outline", "label": "Outline" }
+          ],
+          "default": "primary"
+        },
+        {
+          "type": "text",
+          "id": "button_icon",
+          "label": "Button Icon (optional)",
+          "info": "Font Awesome icon name (e.g., arrow-right, shopping-bag, heart)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "CTA Banner",
+      "blocks": [
+        {
+          "type": "button",
+          "settings": {
+            "button_text": "Take the Quiz",
+            "button_link": "/pages/quiz",
+            "button_style": "secondary",
+            "button_icon": "arrow-right"
+          }
+        },
+        {
+          "type": "button",
+          "settings": {
+            "button_text": "Shop Collections",
+            "button_link": "/collections/all",
+            "button_style": "outline",
+            "button_icon": "shopping-bag"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

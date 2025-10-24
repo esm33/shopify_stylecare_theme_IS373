@@ -3,18 +3,18 @@
     "stylecare_hero": {
       "type": "stylecare-hero",
       "settings": {
-        "background_image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1920&q=80",
+        "hero_image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1920&q=80",
         "section_height": 600,
         "overlay_opacity": 40,
         "enable_parallax": true,
         "hero_title": "Discover Your Clean Girl Aesthetic",
         "hero_subtitle": "Take our personalized quiz and get matched with curated capsules perfect for college style",
-        "primary_cta_text": "Take the Quiz",
-        "primary_cta_link": "/pages/quiz",
-        "primary_cta_icon": "magic",
-        "secondary_cta_text": "Shop Collections",
-        "secondary_cta_link": "/collections/all",
-        "secondary_cta_icon": "shopping-bag"
+        "cta_primary_text": "Take the Quiz",
+        "cta_primary_link": "/pages/quiz",
+        "cta_primary_icon": "fa-magic",
+        "cta_secondary_text": "Shop Collections",
+        "cta_secondary_link": "/collections/all",
+        "cta_secondary_icon": "fa-shopping-bag"
       },
       "blocks": {
         "trust_1": {

@@ -1,0 +1,314 @@
+{
+  "sections": {
+    "stylecare_hero": {
+      "type": "stylecare-hero",
+      "settings": {
+        "section_height": 600,
+        "overlay_opacity": 40,
+        "enable_parallax": true,
+        "hero_title": "Discover Your Clean Girl Aesthetic",
+        "hero_subtitle": "Take our personalized quiz and get matched with curated capsules perfect for college style",
+        "primary_cta_text": "Take the Quiz",
+        "primary_cta_link": "/pages/quiz",
+        "primary_cta_icon": "magic",
+        "secondary_cta_text": "Shop Collections",
+        "secondary_cta_link": "/collections/all",
+        "secondary_cta_icon": "shopping-bag"
+      },
+      "blocks": {
+        "trust_1": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "shield-alt",
+            "text": "Secure Shopping"
+          }
+        },
+        "trust_2": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "award",
+            "text": "Top Rated"
+          }
+        },
+        "trust_3": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "users",
+            "text": "10K+ Students"
+          }
+        },
+        "trust_4": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "clock",
+            "text": "Fast Delivery"
+          }
+        }
+      },
+      "block_order": ["trust_1", "trust_2", "trust_3", "trust_4"]
+    },
+    "stylecare_value_props": {
+      "type": "stylecare-value-props",
+      "settings": {
+        "title": "Why Students Love StyleCare",
+        "subtitle": ""
+      },
+      "blocks": {
+        "prop_1": {
+          "type": "value_prop",
+          "settings": {
+            "icon": "magic",
+            "title": "Personalized Quiz",
+            "description": "Take our 2-minute style quiz to find your perfect clean girl aesthetic"
+          }
+        },
+        "prop_2": {
+          "type": "value_prop",
+          "settings": {
+            "icon": "tags",
+            "title": "Budget-Friendly",
+            "description": "Curated capsules and bundles perfect for college budgets"
+          }
+        },
+        "prop_3": {
+          "type": "value_prop",
+          "settings": {
+            "icon": "user-friends",
+            "title": "Influencer Matches",
+            "description": "Discover influencers who match your style and shop their looks"
+          }
+        },
+        "prop_4": {
+          "type": "value_prop",
+          "settings": {
+            "icon": "clock",
+            "title": "Save Time",
+            "description": "No more endless scrolling — we find the perfect pieces for you"
+          }
+        }
+      },
+      "block_order": ["prop_1", "prop_2", "prop_3", "prop_4"]
+    },
+    "stylecare_services": {
+      "type": "stylecare-services",
+      "settings": {
+        "section_title": "Our Style Services",
+        "section_subtitle": "Find your perfect capsule, rent designer pieces, or get personalized styling help"
+      },
+      "blocks": {
+        "service_1": {
+          "type": "service",
+          "settings": {
+            "badge": "Most Popular",
+            "service_icon": "fa-sparkles",
+            "service_title": "Style Quiz & Capsule",
+            "service_price": "Free",
+            "service_description": "Take our quiz and get matched with your perfect capsule wardrobe and influencer recommendations",
+            "service_features": "2-minute personalized quiz\nCurated capsule matches\nInfluencer style profiles\nShoppable recommendations",
+            "service_cta_text": "Take the Quiz",
+            "service_cta_link": "/pages/quiz"
+          }
+        },
+        "service_2": {
+          "type": "service",
+          "settings": {
+            "badge": "",
+            "service_icon": "fa-tshirt",
+            "service_title": "Designer Rentals",
+            "service_price": "From $29",
+            "service_description": "Rent high-end pieces for special occasions or everyday luxury without the commitment",
+            "service_features": "Designer brands\nFlexible rental periods\nFree shipping both ways\nProfessional cleaning included",
+            "service_cta_text": "Browse Rentals",
+            "service_cta_link": "/collections/rentals"
+          }
+        },
+        "service_3": {
+          "type": "service",
+          "settings": {
+            "badge": "",
+            "service_icon": "fa-comments",
+            "service_title": "1-on-1 Styling",
+            "service_price": "$49",
+            "service_description": "Work directly with our stylists for personalized outfit curation and shopping assistance",
+            "service_features": "30-minute video consultation\nCustom outfit recommendations\nBudget-conscious suggestions\nFollow-up support",
+            "service_cta_text": "Book Session",
+            "service_cta_link": "/pages/book-styling"
+          }
+        }
+      },
+      "block_order": ["service_1", "service_2", "service_3"]
+    },
+    "stylecare_why_choose": {
+      "type": "stylecare-why-choose",
+      "settings": {
+        "title": "Why Choose StyleCare",
+        "subtitle": "Thoughtful styling for the clean girl aesthetic"
+      },
+      "blocks": {
+        "reason_1": {
+          "type": "reason",
+          "settings": {
+            "image_alt": "College student wearing clean girl aesthetic outfit",
+            "title": "Curated for College",
+            "description": "Every capsule is designed specifically for student lifestyles and budgets — no guesswork, just wearable style.",
+            "features": "Budget-friendly pricing\nVersatile pieces\nEasy to mix & match\nPerfect for campus life"
+          }
+        },
+        "reason_2": {
+          "type": "reason",
+          "settings": {
+            "image_alt": "Style quiz interface on phone",
+            "title": "Quiz-Powered Matching",
+            "description": "Our style quiz uses your preferences to match you with the perfect capsule and influencers who share your aesthetic.",
+            "features": "2-minute quick quiz\nPersonalized results\nInfluencer matches\nShoppable recommendations"
+          }
+        },
+        "reason_3": {
+          "type": "reason",
+          "settings": {
+            "image_alt": "Clean girl aesthetic outfit flatlay",
+            "title": "Clean Girl Aesthetic",
+            "description": "We specialize in the minimal, polished, effortlessly chic aesthetic that's taking over campus style.",
+            "features": "Neutral palettes\nMinimal silhouettes\nElevated basics\nTimeless pieces"
+          }
+        }
+      },
+      "block_order": ["reason_1", "reason_2", "reason_3"]
+    },
+    "stylecare_testimonials": {
+      "type": "stylecare-testimonials",
+      "settings": {
+        "title": "What Our Clients Say",
+        "subtitle": "Real experiences from students and customers we've styled"
+      },
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "StyleCare transformed my wardrobe! The quiz matched me with pieces I actually love wearing every day.",
+            "author_name": "Emma Rodriguez",
+            "author_location": "New York, NY"
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Finally found my clean girl aesthetic. The recommendations are spot-on and totally budget-friendly!",
+            "author_name": "Madison Chen",
+            "author_location": "Boston, MA"
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Love how easy it is to shop my capsule. Everything coordinates perfectly and I get compliments all the time!",
+            "author_name": "Olivia Taylor",
+            "author_location": "Los Angeles, CA"
+          }
+        }
+      },
+      "block_order": ["testimonial_1", "testimonial_2", "testimonial_3"]
+    },
+    "stylecare_faq": {
+      "type": "stylecare-faq",
+      "settings": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Answers about StyleCare, the quiz, and clean girl styling"
+      },
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the \"clean girl\" aesthetic?",
+            "answer": "<p>The clean girl aesthetic focuses on minimal silhouettes, neutral palettes, elevated basics, and understated accessories. It's about effortless polish rather than loud trends.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does the style quiz take?",
+            "answer": "<p>Our quiz is designed to be quick — about 2-4 minutes. It asks a few visual preference and lifestyle questions to match you with the right capsule and influencers.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are the recommended items budget-friendly?",
+            "answer": "<p>Yes. We prioritize affordable stores and curated bundles suitable for college budgets while keeping the aesthetic polished and wearable.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I return or exchange items bought via partner links?",
+            "answer": "<p>Returns and exchanges follow the partner store's policies. We include return information where available and provide styling suggestions so you buy with confidence.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I get follow-up styling tips?",
+            "answer": "<p>After purchases, we send short styling tips and outfit ideas via email, helping you make the most of each piece in your capsule.</p>"
+          }
+        }
+      },
+      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5"]
+    },
+    "stylecare_contact": {
+      "type": "stylecare-contact",
+      "settings": {
+        "title": "Get In Touch",
+        "subtitle": "Fill out the form below and we'll get back to you within 24 hours",
+        "success_message": "Thank you for contacting us! We'll get back to you within 24 hours.",
+        "phone": "(555) 555-1234",
+        "email": "hello@stylecare.com",
+        "whatsapp": "15555551234",
+        "location": "Boston, MA"
+      }
+    },
+    "stylecare_cta": {
+      "type": "stylecare-cta",
+      "settings": {
+        "overlay_opacity": 50,
+        "title": "Ready to Transform Your Style?",
+        "subtitle": "Take our quiz and discover your perfect clean girl aesthetic today",
+        "guarantee_icon": "shield-alt",
+        "guarantee_text": "100% Satisfaction Guaranteed"
+      },
+      "blocks": {
+        "cta_button_1": {
+          "type": "button",
+          "settings": {
+            "button_text": "Take the Quiz",
+            "button_link": "/pages/quiz",
+            "button_style": "secondary",
+            "button_icon": "arrow-right"
+          }
+        },
+        "cta_button_2": {
+          "type": "button",
+          "settings": {
+            "button_text": "Shop Collections",
+            "button_link": "/collections/all",
+            "button_style": "outline",
+            "button_icon": "shopping-bag"
+          }
+        }
+      },
+      "block_order": ["cta_button_1", "cta_button_2"]
+    }
+  },
+  "order": [
+    "stylecare_hero",
+    "stylecare_value_props",
+    "stylecare_services",
+    "stylecare_why_choose",
+    "stylecare_testimonials",
+    "stylecare_faq",
+    "stylecare_contact",
+    "stylecare_cta"
+  ]
+}

@@ -1,0 +1,232 @@
+{% comment %}
+  Testimonials Section - StyleCare
+  Displays customer reviews with ratings and location
+{% endcomment %}
+
+<section class="testimonials" id="testimonials-{{ section.id }}">
+  <div class="container">
+    <div class="section-header text-center">
+      {% if section.settings.title != blank %}
+        <h2 class="section-title">{{ section.settings.title }}</h2>
+      {% endif %}
+      {% if section.settings.subtitle != blank %}
+        <p class="section-subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+    </div>
+
+    <div class="testimonials-grid">
+      {% for block in section.blocks %}
+        <div class="testimonial-card" {{ block.shopify_attributes }}>
+          {% if block.settings.rating > 0 %}
+            <div class="testimonial-rating">
+              {% for i in (1..block.settings.rating) %}
+                <i class="fas fa-star"></i>
+              {% endfor %}
+            </div>
+          {% endif %}
+          
+          {% if block.settings.quote != blank %}
+            <blockquote class="testimonial-quote">
+              "{{ block.settings.quote }}"
+            </blockquote>
+          {% endif %}
+          
+          <div class="testimonial-author">
+            {% if block.settings.author_name != blank %}
+              <p class="testimonial-name">{{ block.settings.author_name }}</p>
+            {% endif %}
+            {% if block.settings.author_location != blank %}
+              <p class="testimonial-location">{{ block.settings.author_location }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% style %}
+  .testimonials {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, rgba(255, 143, 179, 0.05) 0%, rgba(184, 153, 255, 0.05) 100%);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+    margin-top: var(--space-2xl);
+  }
+
+  .testimonial-card {
+    background: white;
+    padding: var(--space-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blush-500), var(--lavender-500), var(--mauve-500));
+    opacity: 0;
+    transition: opacity var(--transition-base);
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-2xl);
+  }
+
+  .testimonial-card:hover::before {
+    opacity: 1;
+  }
+
+  .testimonial-rating {
+    display: flex;
+    gap: 0.25rem;
+    color: var(--sunset-500);
+    font-size: var(--text-lg);
+  }
+
+  .testimonial-quote {
+    font-size: var(--text-lg);
+    line-height: 1.6;
+    color: var(--mauve-900);
+    font-style: italic;
+    flex: 1;
+  }
+
+  .testimonial-author {
+    border-top: 1px solid var(--blush-100);
+    padding-top: var(--space-md);
+  }
+
+  .testimonial-name {
+    font-weight: var(--font-weight-semibold);
+    color: var(--mauve-800);
+    margin-bottom: var(--space-xs);
+    font-family: var(--font-display);
+  }
+
+  .testimonial-location {
+    font-size: var(--text-sm);
+    color: var(--mauve-500);
+  }
+
+  @media (max-width: 768px) {
+    .testimonials {
+      padding: var(--space-2xl) 0;
+    }
+
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+
+    .testimonial-card {
+      padding: var(--space-lg);
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "tag": "section",
+  "class": "section-testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "What Our Clients Say"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Section Subtitle",
+      "default": "Real experiences from students and customers we've styled"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Star Rating",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Testimonial Quote",
+          "default": "Amazing service! They helped me find my perfect style."
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Customer Name",
+          "default": "Sarah Johnson"
+        },
+        {
+          "type": "text",
+          "id": "author_location",
+          "label": "Customer Location",
+          "default": "Boston, MA"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "StyleCare transformed my wardrobe! The quiz matched me with pieces I actually love wearing.",
+            "author_name": "Emma Rodriguez",
+            "author_location": "New York, NY"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Finally found my clean girl aesthetic. The recommendations are spot-on and budget-friendly!",
+            "author_name": "Madison Chen",
+            "author_location": "Boston, MA"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Love how easy it is to shop my capsule. Everything coordinates perfectly!",
+            "author_name": "Olivia Taylor",
+            "author_location": "Los Angeles, CA"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

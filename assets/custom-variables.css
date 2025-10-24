@@ -181,18 +181,58 @@ body {
     font-size: var(--text-base);
     line-height: var(--leading-relaxed);
     color: var(--gray-700);
-    background-color: var(--warm-white);
+    background: linear-gradient(180deg, 
+        var(--warm-white) 0%,
+        var(--blush-50) 20%,
+        var(--lavender-50) 40%,
+        var(--warm-white) 60%,
+        var(--blush-50) 80%,
+        var(--warm-white) 100%);
+    background-attachment: fixed;
+    background-size: 100% 200%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Headings use display font */
+/* Dreamy background pattern overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 143, 179, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(184, 153, 255, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 174, 77, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Ensure content is above background */
+#header-group,
+main,
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* Headings use display font with gorgeous styling */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     font-weight: var(--font-weight-bold);
     color: var(--mauve-700);
     line-height: var(--leading-tight);
     letter-spacing: var(--tracking-tight);
+    background: linear-gradient(135deg, var(--mauve-700) 0%, var(--blush-600) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+h1 {
+    text-shadow: 0 2px 20px rgba(255, 143, 179, 0.15);
 }
 
 /* Premium link styling */
@@ -200,19 +240,20 @@ a {
     color: var(--blush-600);
     text-decoration: none;
     transition: color var(--transition-fast);
+    position: relative;
 }
 
 a:hover {
     color: var(--blush-700);
 }
 
-/* Selection color */
+/* Selection color - ultra feminine */
 ::selection {
-    background-color: var(--blush-200);
+    background: linear-gradient(135deg, var(--blush-300) 0%, var(--lavender-300) 100%);
     color: var(--mauve-900);
 }
 
 ::-moz-selection {
-    background-color: var(--blush-200);
+    background: linear-gradient(135deg, var(--blush-300) 0%, var(--lavender-300) 100%);
     color: var(--mauve-900);
 }

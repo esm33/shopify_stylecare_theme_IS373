@@ -31,50 +31,73 @@ button.shopify-payment-button__button,
     overflow: hidden;
 }
 
-/* Primary Button - Blush Gradient */
+/* Primary Button - Gorgeous Gradient with Glow */
 .button--primary,
 .btn-primary,
 button[type="submit"]:not(.shopify-payment-button__button) {
-    background: linear-gradient(135deg, var(--blush-500) 0%, var(--blush-600) 50%, var(--blush-700) 100%);
+    background: linear-gradient(135deg, 
+        var(--blush-400) 0%, 
+        var(--blush-500) 25%,
+        var(--blush-600) 75%,
+        var(--mauve-600) 100%);
+    background-size: 200% 100%;
     color: white;
-    box-shadow: var(--shadow-btn-primary);
+    box-shadow: 0 4px 15px rgba(255, 143, 179, 0.4),
+                0 2px 8px rgba(0, 0, 0, 0.1);
     border: none;
     font-weight: 600;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
 }
 
+/* Sparkle overlay */
 .button--primary::before,
 .btn-primary::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, transparent 100%);
-    opacity: 0;
-    transition: opacity 0.3s var(--ease-smooth);
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.3) 50%, 
+        transparent 100%);
+    transition: left 0.5s;
+}
+
+.button--primary:hover::before,
+.btn-primary:hover::before {
+    left: 100%;
 }
 
 .button--primary:hover,
 .btn-primary:hover,
 button[type="submit"]:not(.shopify-payment-button__button):hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-btn-primary-hover);
-    background: linear-gradient(135deg, var(--blush-600) 0%, var(--blush-700) 50%, var(--blush-800) 100%);
+    transform: translateY(-3px) scale(1.05);
+    background-position: 100% 0;
+    box-shadow: 0 8px 25px rgba(255, 143, 179, 0.5),
+                0 4px 12px rgba(184, 153, 255, 0.3),
+                0 0 30px rgba(255, 143, 179, 0.2);
+    animation: pulse 1.5s infinite;
 }
 
-.button--primary:hover::before,
-.btn-primary:hover::before {
-    opacity: 1;
+@keyframes pulse {
+    0%, 100% { 
+        box-shadow: 0 8px 25px rgba(255, 143, 179, 0.5),
+                    0 4px 12px rgba(184, 153, 255, 0.3);
+    }
+    50% { 
+        box-shadow: 0 8px 30px rgba(255, 143, 179, 0.6),
+                    0 4px 15px rgba(184, 153, 255, 0.4);
+    }
 }
 
 .button--primary:active,
 .btn-primary:active {
-    transform: translateY(0);
+    transform: translateY(-1px) scale(1.02);
     transition-duration: 0.1s;
-    box-shadow: var(--shadow-btn-primary);
-    background: var(--blush-800);
 }
 
 .button--primary:focus-visible,
@@ -151,51 +174,94 @@ button[type="submit"]:not(.shopify-payment-button__button):hover {
     min-height: 52px;
 }
 
-/* ========== CARDS ========== */
+/* ========== DREAMY PRODUCT CARDS ========== */
 
-.card {
+.card,
+.product-card,
+.card-product {
     background: white;
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-2xl);
     padding: var(--space-xl);
-    box-shadow: var(--shadow-card);
-    transition: var(--transition-card);
+    box-shadow: 0 4px 20px rgba(255, 143, 179, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+    transition: all var(--transition-card);
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(255, 143, 179, 0.1);
 }
 
-/* Card hover effect with gradient overlay */
-.card::before {
+/* Magical gradient overlay on hover */
+.card::before,
+.product-card::before,
+.card-product::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 143, 179, 0.02) 0%, rgba(184, 153, 255, 0.02) 100%);
+    background: linear-gradient(135deg, 
+        rgba(255, 143, 179, 0.03) 0%, 
+        rgba(184, 153, 255, 0.03) 50%,
+        rgba(255, 174, 77, 0.02) 100%);
     opacity: 0;
     transition: opacity var(--transition-base);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-2xl);
     pointer-events: none;
 }
 
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-card-hover);
+/* Shimmer effect on card hover */
+.card::after,
+.product-card::after,
+.card-product::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        transparent 40%,
+        rgba(255, 255, 255, 0.4) 50%,
+        transparent 60%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+    pointer-events: none;
 }
 
-.card:hover::before {
+.card:hover,
+.product-card:hover,
+.card-product:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(255, 143, 179, 0.15), 
+                0 4px 12px rgba(184, 153, 255, 0.1);
+    border-color: rgba(255, 143, 179, 0.3);
+}
+
+.card:hover::before,
+.product-card:hover::before,
+.card-product:hover::before {
     opacity: 1;
 }
 
-/* Product Card Specific */
-.product-card,
-.card-product {
-    border: 1px solid var(--gray-200);
+.card:hover::after,
+.product-card:hover::after,
+.card-product:hover::after {
+    transform: translateX(100%);
 }
 
-.product-card:hover,
-.card-product:hover {
-    border-color: var(--blush-300);
+/* Product card images with beautiful overlay */
+.product-card img,
+.card-product img {
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+}
+
+.product-card:hover img,
+.card-product:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.05);
 }
 
 /* ========== ICON BADGES ========== */
@@ -404,66 +470,176 @@ select:focus {
     animation: fadeIn 0.5s ease-out;
 }
 
-/* ========== HEADER & BANNER CUSTOMIZATION ========== */
+/* ========== ULTRA-FEMININE HEADER & BANNER ========== */
 
-/* Pink gradient announcement bar/banner */
+/* Gorgeous gradient announcement bar with shimmer effect */
 .announcement-bar,
 .announcement-bar-component,
 aside.announcement-bar {
-    background: linear-gradient(135deg, var(--blush-500) 0%, var(--blush-600) 50%, var(--mauve-600) 100%) !important;
+    background: linear-gradient(135deg, 
+        var(--blush-400) 0%, 
+        var(--blush-500) 25%,
+        var(--lavender-400) 50%, 
+        var(--mauve-500) 75%,
+        var(--blush-500) 100%) !important;
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shimmer overlay effect */
+.announcement-bar::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 70%
+    );
+    animation: shimmer 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
 }
 
 .announcement-bar .section-background {
-    background: linear-gradient(135deg, var(--blush-500) 0%, var(--blush-600) 50%, var(--mauve-600) 100%) !important;
+    background: transparent !important;
 }
 
-/* Ensure text is white and readable on pink background */
+/* Beautiful text styling with text shadow for depth */
 .announcement-bar p,
 .announcement-bar a,
 .announcement-bar span,
 .announcement-bar__slides,
 .announcement-bar .announcement__text {
     color: white !important;
-    font-weight: 500;
+    font-weight: 600;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 1;
 }
 
-/* Style announcement links */
+/* Elegant link styling */
+.announcement-bar a {
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all var(--transition-fast);
+}
+
 .announcement-bar a:hover {
     color: var(--warm-white) !important;
-    text-decoration: underline;
+    border-bottom-color: white;
+    transform: translateY(-1px);
 }
 
-/* Arrow styling for announcement bar */
+/* Stylish arrow buttons */
 .announcement-bar button,
 .announcement-bar .slideshow-arrow {
     color: white !important;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
     border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-base);
 }
 
 .announcement-bar button:hover,
 .announcement-bar .slideshow-arrow:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Main header with subtle pink background */
+/* Dreamy main header with soft pink glow */
 header,
 .header,
 #header-group {
-    background: linear-gradient(180deg, var(--blush-50) 0%, var(--warm-white) 100%);
+    background: linear-gradient(180deg, 
+        var(--blush-50) 0%, 
+        var(--lavender-50) 50%,
+        var(--warm-white) 100%);
+    box-shadow: 0 2px 20px rgba(255, 143, 179, 0.1);
+    position: relative;
 }
 
-/* Header links styling */
+/* Subtle sparkle effect on header */
+header::after,
+.header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 143, 179, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(184, 153, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Elegant header links */
 .header a,
-.header-menu a {
+.header-menu a,
+.header nav a {
     color: var(--mauve-700);
-    font-weight: 500;
-    transition: color var(--transition-fast);
+    font-weight: 600;
+    font-family: var(--font-display);
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+/* Beautiful underline effect on hover */
+.header a::after,
+.header-menu a::after,
+.header nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blush-500), var(--lavender-500));
+    transition: width var(--transition-base);
 }
 
 .header a:hover,
-.header-menu a:hover {
+.header-menu a:hover,
+.header nav a:hover {
     color: var(--blush-600);
+}
+
+.header a:hover::after,
+.header-menu a:hover::after,
+.header nav a:hover::after {
+    width: 100%;
+}
+
+/* Logo styling with glow effect */
+.header__logo img,
+.header .logo img {
+    transition: all var(--transition-base);
+    filter: drop-shadow(0 2px 8px rgba(255, 143, 179, 0.2));
+}
+
+.header__logo:hover img,
+.header .logo:hover img {
+    transform: scale(1.05);
+    filter: drop-shadow(0 4px 12px rgba(255, 143, 179, 0.3));
 }
 
 /* ========== RESPONSIVE SPACING ========== */

@@ -93,13 +93,12 @@
     gap: var(--space-3xl);
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
   }
   
   .grid-auto-fit-lg {
-    /* Removed - using flexbox on parent instead */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-3xl);
   }
   
   .service-card {
@@ -110,9 +109,6 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    min-width: 300px;
-    max-width: 380px;
-    flex: 1 1 300px;
   }
   
   .service-badge {
@@ -187,14 +183,8 @@
       padding: var(--space-5xl) var(--space-lg);
     }
     
-    .services-grid {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .service-card {
-      max-width: 100%;
-      width: 100%;
+    .grid-auto-fit-lg {
+      grid-template-columns: 1fr;
     }
   }
 {% endstyle %}

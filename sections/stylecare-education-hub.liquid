@@ -747,7 +747,12 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
       
-      console.log('🛒 Adding to cart - Product ID:', productId);
+      // Convert product ID to number (Shopify API requires numeric ID)
+      const numericProductId = parseInt(productId, 10);
+      
+      console.log('🛒 Adding to cart');
+      console.log('  Product ID (string):', productId);
+      console.log('  Product ID (number):', numericProductId);
       
       try {
         // Add item to cart using Shopify Cart API
@@ -757,7 +762,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            id: productId,
+            id: numericProductId,
             quantity: 1
           })
         });

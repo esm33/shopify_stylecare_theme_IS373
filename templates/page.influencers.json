@@ -1,0 +1,111 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "influencer_catalog": {
+      "type": "stylecare-influencer-catalog",
+      "blocks": {
+        "influencer_1": {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_name": "Emma Clean",
+            "instagram_handle": "emmaclean",
+            "verified": true,
+            "rating": 5,
+            "style_aesthetic": "Clean Girl, Minimalist, Neutral",
+            "description": "Minimalist fashion enthusiast sharing daily outfit inspiration and capsule wardrobe tips for college students.",
+            "followers": "150K",
+            "profile_link": ""
+          }
+        },
+        "influencer_2": {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_name": "Sophie Chic",
+            "instagram_handle": "sophiechic",
+            "verified": true,
+            "rating": 5,
+            "style_aesthetic": "Y2K, Streetwear, Bold",
+            "description": "Y2K fashion lover bringing back the best trends from the 2000s with a modern, budget-friendly twist.",
+            "followers": "280K",
+            "profile_link": ""
+          }
+        },
+        "influencer_3": {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_name": "Ava Luxe",
+            "instagram_handle": "avaluxe",
+            "verified": true,
+            "rating": 4,
+            "style_aesthetic": "Elegant, Classic, Timeless",
+            "description": "Timeless elegance and sophisticated style for the modern woman. Specializing in capsule wardrobes.",
+            "followers": "95K",
+            "profile_link": ""
+          }
+        },
+        "influencer_4": {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_name": "Mia Boheme",
+            "instagram_handle": "miaboheme",
+            "verified": true,
+            "rating": 5,
+            "style_aesthetic": "Boho, Earthy, Vintage",
+            "description": "Bohemian vibes and vintage finds. Creating unique looks with sustainable and thrifted pieces.",
+            "followers": "210K",
+            "profile_link": ""
+          }
+        },
+        "influencer_5": {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_name": "Zara Street",
+            "instagram_handle": "zarastreet",
+            "verified": true,
+            "rating": 5,
+            "style_aesthetic": "Streetwear, Urban, Edgy",
+            "description": "Urban streetwear enthusiast mixing high and low fashion for the ultimate college campus looks.",
+            "followers": "320K",
+            "profile_link": ""
+          }
+        },
+        "influencer_6": {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_name": "Lily Pastel",
+            "instagram_handle": "lilypastel",
+            "verified": false,
+            "rating": 4,
+            "style_aesthetic": "Soft Girl, Pastel, Feminine",
+            "description": "Soft pastels and feminine silhouettes. Perfect for those who love delicate and dreamy aesthetics.",
+            "followers": "78K",
+            "profile_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "influencer_1",
+        "influencer_2",
+        "influencer_3",
+        "influencer_4",
+        "influencer_5",
+        "influencer_6"
+      ],
+      "settings": {
+        "section_title": "Our Style Influencers",
+        "section_subtitle": "Discover influencers who match your aesthetic and shop their curated looks"
+      }
+    }
+  },
+  "order": [
+    "influencer_catalog"
+  ]
+}

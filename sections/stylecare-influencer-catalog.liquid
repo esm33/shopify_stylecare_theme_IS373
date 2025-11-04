@@ -1,0 +1,478 @@
+{% comment %}
+  StyleCare Influencer Catalog Section
+  Displays influencer profiles with ratings and styles
+{% endcomment %}
+
+<section class="influencer-catalog">
+  <div class="influencer-container">
+    <!-- Section Header -->
+    <div class="influencer-header">
+      <h2 class="influencer-section-title">{{ section.settings.section_title }}</h2>
+      {% if section.settings.section_subtitle != blank %}
+        <p class="influencer-section-subtitle">{{ section.settings.section_subtitle }}</p>
+      {% endif %}
+    </div>
+
+    <!-- Influencer Grid -->
+    <div class="influencer-grid">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'influencer_card' %}
+            <div class="influencer-card" {{ block.shopify_attributes }}>
+              <!-- Influencer Image -->
+              <div class="influencer-image-wrapper">
+                {% if block.settings.influencer_image %}
+                  <img 
+                    src="{{ block.settings.influencer_image | image_url: width: 400 }}" 
+                    alt="{{ block.settings.influencer_name }}"
+                    class="influencer-image"
+                    loading="lazy"
+                  >
+                {% else %}
+                  <div class="influencer-image-placeholder">
+                    <i class="fas fa-user"></i>
+                  </div>
+                {% endif %}
+                
+                {% if block.settings.verified %}
+                  <span class="verified-badge">
+                    <i class="fas fa-check-circle"></i>
+                  </span>
+                {% endif %}
+              </div>
+
+              <!-- Influencer Info -->
+              <div class="influencer-info">
+                <h3 class="influencer-name">{{ block.settings.influencer_name }}</h3>
+                
+                {% if block.settings.instagram_handle != blank %}
+                  <p class="influencer-handle">@{{ block.settings.instagram_handle }}</p>
+                {% endif %}
+
+                <!-- Star Rating -->
+                <div class="influencer-rating">
+                  {% assign rating = block.settings.rating | default: 5 %}
+                  {% for i in (1..5) %}
+                    {% if i <= rating %}
+                      <i class="fas fa-star"></i>
+                    {% else %}
+                      <i class="far fa-star"></i>
+                    {% endif %}
+                  {% endfor %}
+                  <span class="rating-count">({{ rating }}.0)</span>
+                </div>
+
+                <!-- Style Tags -->
+                {% if block.settings.style_aesthetic != blank %}
+                  <div class="style-tags">
+                    {% assign styles = block.settings.style_aesthetic | split: ',' %}
+                    {% for style in styles limit: 3 %}
+                      <span class="style-tag">{{ style | strip }}</span>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+
+                <!-- Description -->
+                {% if block.settings.description != blank %}
+                  <p class="influencer-description">{{ block.settings.description }}</p>
+                {% endif %}
+
+                <!-- Stats -->
+                {% if block.settings.followers != blank %}
+                  <div class="influencer-stats">
+                    <div class="stat">
+                      <i class="fas fa-users"></i>
+                      <span>{{ block.settings.followers }} followers</span>
+                    </div>
+                  </div>
+                {% endif %}
+
+                <!-- CTA Button -->
+                {% if block.settings.profile_link != blank %}
+                  <a href="{{ block.settings.profile_link }}" class="influencer-cta" target="_blank" rel="noopener">
+                    View Profile
+                    <i class="fas fa-arrow-right"></i>
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% style %}
+  .influencer-catalog {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #fdfbfb 0%, #f7f4f4 100%);
+  }
+
+  .influencer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .influencer-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .influencer-section-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--color-charcoal, #2d2d2d);
+    margin-bottom: 15px;
+    letter-spacing: -0.02em;
+  }
+
+  .influencer-section-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-grey, #666);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .influencer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .influencer-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .influencer-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(244, 168, 184, 0.25);
+  }
+
+  .influencer-image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    overflow: hidden;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+  }
+
+  .influencer-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .influencer-card:hover .influencer-image {
+    transform: scale(1.05);
+  }
+
+  .influencer-image-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: #ccc;
+  }
+
+  .verified-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .verified-badge i {
+    color: #1DA1F2;
+    font-size: 1.2rem;
+  }
+
+  .influencer-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-grow: 1;
+  }
+
+  .influencer-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-charcoal, #2d2d2d);
+    margin: 0;
+  }
+
+  .influencer-handle {
+    font-size: 1rem;
+    color: var(--color-rose, #e88ea7);
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .influencer-rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 5px 0;
+  }
+
+  .influencer-rating i {
+    color: #ffc107;
+    font-size: 1rem;
+  }
+
+  .influencer-rating .far {
+    color: #ddd;
+  }
+
+  .rating-count {
+    font-size: 0.9rem;
+    color: var(--color-grey, #666);
+    margin-left: 5px;
+  }
+
+  .style-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0;
+  }
+
+  .style-tag {
+    background: linear-gradient(135deg, #fff5f7 0%, #ffe8f0 100%);
+    color: var(--color-rose, #e88ea7);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+
+  .influencer-description {
+    font-size: 0.95rem;
+    color: var(--color-grey, #666);
+    line-height: 1.6;
+    margin: 8px 0;
+    flex-grow: 1;
+  }
+
+  .influencer-stats {
+    display: flex;
+    gap: 15px;
+    padding-top: 12px;
+    border-top: 1px solid #f0f0f0;
+  }
+
+  .stat {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    color: var(--color-grey, #666);
+  }
+
+  .stat i {
+    color: var(--color-blush, #f4a8b8);
+  }
+
+  .influencer-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--color-blush, #f4a8b8) 0%, var(--color-rose, #e88ea7) 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+  }
+
+  .influencer-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(244, 168, 184, 0.4);
+  }
+
+  .influencer-cta i {
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+  }
+
+  .influencer-cta:hover i {
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 768px) {
+    .influencer-catalog {
+      padding: 60px 15px;
+    }
+
+    .influencer-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .influencer-section-title {
+      font-size: 2rem;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .influencer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Influencer Catalog",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Our Style Influencers"
+    },
+    {
+      "type": "textarea",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "Discover influencers who match your aesthetic and shop their curated looks"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "influencer_card",
+      "name": "Influencer Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "influencer_image",
+          "label": "Influencer Photo"
+        },
+        {
+          "type": "text",
+          "id": "influencer_name",
+          "label": "Influencer Name",
+          "default": "Emma Style"
+        },
+        {
+          "type": "text",
+          "id": "instagram_handle",
+          "label": "Instagram Handle",
+          "info": "Without the @ symbol"
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Show Verified Badge",
+          "default": true
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Star Rating",
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "style_aesthetic",
+          "label": "Style Tags",
+          "info": "Comma-separated (e.g., Clean Girl, Minimalist, Y2K)",
+          "default": "Clean Girl, Minimalist"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Minimalist fashion enthusiast sharing daily outfit inspiration and capsule wardrobe tips."
+        },
+        {
+          "type": "text",
+          "id": "followers",
+          "label": "Follower Count",
+          "info": "e.g., 150K, 2.5M",
+          "default": "150K"
+        },
+        {
+          "type": "url",
+          "id": "profile_link",
+          "label": "Profile Link",
+          "info": "Link to influencer profile or collection page"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Influencer Catalog",
+      "blocks": [
+        {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_name": "Emma Style",
+            "instagram_handle": "emmastyle",
+            "verified": true,
+            "rating": 5,
+            "style_aesthetic": "Clean Girl, Minimalist",
+            "description": "Minimalist fashion enthusiast sharing daily outfit inspiration and capsule wardrobe tips.",
+            "followers": "150K"
+          }
+        },
+        {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_name": "Sophie Chic",
+            "instagram_handle": "sophiechic",
+            "verified": true,
+            "rating": 5,
+            "style_aesthetic": "Y2K, Streetwear",
+            "description": "Y2K fashion lover bringing back the best trends from the 2000s with a modern twist.",
+            "followers": "280K"
+          }
+        },
+        {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_name": "Ava Luxe",
+            "instagram_handle": "avaluxe",
+            "verified": true,
+            "rating": 4,
+            "style_aesthetic": "Elegant, Classic",
+            "description": "Timeless elegance and sophisticated style for the modern woman.",
+            "followers": "95K"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

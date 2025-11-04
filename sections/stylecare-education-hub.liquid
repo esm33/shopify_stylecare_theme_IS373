@@ -667,8 +667,9 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       
       const productId = this.getAttribute('data-product-id');
-      const videoTitle = this.closest('.video-card').querySelector('.video-title').textContent;
-      const videoPrice = this.closest('.video-card').querySelector('.price').textContent;
+      const videoCard = this.closest('.video-card');
+      const videoTitle = videoCard ? videoCard.querySelector('.video-title')?.textContent : 'Premium Video';
+      const videoPrice = videoCard ? videoCard.querySelector('.price')?.textContent : '$0.00';
       
       // Add loading state
       const originalText = this.innerHTML;
@@ -679,7 +680,7 @@ document.addEventListener('DOMContentLoaded', function() {
       await new Promise(resolve => setTimeout(resolve, 800));
       
       // DEMO MODE: Simulate successful add to cart
-      if (DEMO_MODE && (!productId || productId === '')) {
+      if (DEMO_MODE) {
         console.log('🎬 DEMO MODE: Simulating add to cart');
         console.log('Video:', videoTitle);
         console.log('Price:', videoPrice);
@@ -687,15 +688,42 @@ document.addEventListener('DOMContentLoaded', function() {
         // Increment demo cart count
         demoCartCount++;
         
-        // Update cart count display
-        const cartCount = document.querySelector('.cart-count, .cart-icon__count, [data-cart-count]');
+        // Update cart count display - try multiple selectors
+        const cartCountSelectors = [
+          '[ref="cartBubbleCount"]',
+          '.cart-bubble__text-count',
+          '.cart-count',
+          '.cart-icon__count',
+          '[data-cart-count]',
+          '#cart-bubble-text .cart-bubble__text-count'
+        ];
+        
+        let cartCount = null;
+        for (const selector of cartCountSelectors) {
+          cartCount = document.querySelector(selector);
+          if (cartCount) {
+            console.log('✅ Found cart counter with selector:', selector);
+            break;
+          }
+        }
+        
         if (cartCount) {
           cartCount.textContent = demoCartCount;
+          cartCount.classList.remove('hidden');
+          
+          // Also update the parent bubble to show it
+          const cartBubble = document.querySelector('.cart-bubble');
+          if (cartBubble) {
+            cartBubble.classList.remove('visually-hidden');
+          }
+          
           // Add pulse animation to cart icon
           cartCount.style.animation = 'pulse 0.5s ease';
           setTimeout(() => {
             cartCount.style.animation = '';
           }, 500);
+        } else {
+          console.warn('⚠️ Could not find cart counter element');
         }
         
         // Show success state

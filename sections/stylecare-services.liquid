@@ -91,15 +91,15 @@
   
   .services-grid {
     gap: var(--space-3xl);
-    justify-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
   .grid-auto-fit-lg {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    justify-content: center;
+    /* Removed - using flexbox on parent instead */
   }
   
   .service-card {
@@ -110,7 +110,9 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 400px;
+    min-width: 300px;
+    max-width: 380px;
+    flex: 1 1 300px;
   }
   
   .service-badge {
@@ -186,28 +188,13 @@
     }
     
     .services-grid {
-      max-width: 100%;
-    }
-    
-    .grid-auto-fit-lg {
-      grid-template-columns: 1fr;
-      justify-items: center;
+      flex-direction: column;
+      align-items: center;
     }
     
     .service-card {
       max-width: 100%;
-    }
-  }
-  
-  @media (min-width: 769px) and (max-width: 1024px) {
-    .grid-auto-fit-lg {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  @media (min-width: 1025px) {
-    .grid-auto-fit-lg {
-      grid-template-columns: repeat(3, 1fr);
+      width: 100%;
     }
   }
 {% endstyle %}

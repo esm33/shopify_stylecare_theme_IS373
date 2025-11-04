@@ -21,6 +21,8 @@
             "rating": 5,
             "style_aesthetic": "Clean Girl, Minimalist, Neutral",
             "description": "Minimalist fashion enthusiast sharing daily outfit inspiration and capsule wardrobe tips for college students.",
+            "typical_shops": "Princess Polly, Edikted, Garage",
+            "price_range": "$$",
             "followers": "150K",
             "profile_link": ""
           }
@@ -34,6 +36,8 @@
             "rating": 5,
             "style_aesthetic": "Y2K, Streetwear, Bold",
             "description": "Y2K fashion lover bringing back the best trends from the 2000s with a modern, budget-friendly twist.",
+            "typical_shops": "That's So Fetch, Tiger Mist, White Fox Boutique",
+            "price_range": "$$",
             "followers": "280K",
             "profile_link": ""
           }
@@ -47,6 +51,8 @@
             "rating": 4,
             "style_aesthetic": "Elegant, Classic, Timeless",
             "description": "Timeless elegance and sophisticated style for the modern woman. Specializing in capsule wardrobes.",
+            "typical_shops": "Revolve, Reformation, Sézane, Aritzia",
+            "price_range": "$$$",
             "followers": "95K",
             "profile_link": ""
           }
@@ -60,6 +66,8 @@
             "rating": 5,
             "style_aesthetic": "Boho, Earthy, Vintage",
             "description": "Bohemian vibes and vintage finds. Creating unique looks with sustainable and thrifted pieces.",
+            "typical_shops": "Free People, Peppermayo, Urban Outfitters",
+            "price_range": "$$",
             "followers": "210K",
             "profile_link": ""
           }
@@ -73,6 +81,8 @@
             "rating": 5,
             "style_aesthetic": "Streetwear, Urban, Edgy",
             "description": "Urban streetwear enthusiast mixing high and low fashion for the ultimate college campus looks.",
+            "typical_shops": "White Fox Boutique, Edikted, Princess Polly",
+            "price_range": "$$",
             "followers": "320K",
             "profile_link": ""
           }
@@ -86,6 +96,8 @@
             "rating": 4,
             "style_aesthetic": "Soft Girl, Pastel, Feminine",
             "description": "Soft pastels and feminine silhouettes. Perfect for those who love delicate and dreamy aesthetics.",
+            "typical_shops": "Tiger Mist, That's So Fetch, Peppermayo",
+            "price_range": "$$",
             "followers": "78K",
             "profile_link": ""
           }

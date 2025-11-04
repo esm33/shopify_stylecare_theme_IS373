@@ -56,7 +56,7 @@
         "hero_title": "Discover Your Clean Girl Aesthetic",
         "hero_subtitle": "Take our personalized quiz and get matched with curated capsules perfect for college style",
         "cta_primary_text": "Take the Quiz",
-        "cta_primary_link": "/pages/quiz",
+        "cta_primary_link": "shopify://pages/style-quiz",
         "cta_primary_icon": "fa-magic",
         "cta_secondary_text": "Shop Collections",
         "cta_secondary_link": "/collections/all",

@@ -3,6 +3,24 @@
   Modern grid layout with contact cards
 {% endcomment %}
 
+<!-- Hero Banner -->
+{% if section.settings.show_banner %}
+<div class="contact-hero-banner" style="
+  {% if section.settings.banner_image %}
+    background-image: linear-gradient(rgba(0, 0, 0, {{ section.settings.banner_overlay | divided_by: 100.0 }}), rgba(0, 0, 0, {{ section.settings.banner_overlay | divided_by: 100.0 }})), url('{{ section.settings.banner_image | image_url: width: 1920 }}');
+  {% else %}
+    background: linear-gradient(135deg, var(--color-blush, #f4a8b8) 0%, var(--color-rose, #e88ea7) 100%);
+  {% endif %}
+">
+  <div class="contact-banner-content">
+    <h1 class="contact-banner-title">{{ section.settings.banner_title }}</h1>
+    {% if section.settings.banner_subtitle != blank %}
+      <p class="contact-banner-subtitle">{{ section.settings.banner_subtitle }}</p>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+
 <div class="contact-hub-section">
   <div class="contact-hub-container">
     <!-- Hero Header -->
@@ -33,6 +51,43 @@
 </div>
 
 {% style %}
+  .contact-hero-banner {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 0;
+  }
+
+  .contact-banner-content {
+    text-align: center;
+    color: white;
+    z-index: 2;
+    padding: 20px;
+    max-width: 800px;
+  }
+
+  .contact-banner-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .contact-banner-subtitle {
+    font-size: 1.3rem;
+    color: white;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
   .contact-hub-section {
     background: linear-gradient(135deg, #fdfbfb 0%, #f7f4f4 100%);
     padding: 80px 20px;
@@ -171,6 +226,18 @@
   }
 
   @media (max-width: 768px) {
+    .contact-hero-banner {
+      height: 300px;
+    }
+
+    .contact-banner-title {
+      font-size: 2.5rem;
+    }
+
+    .contact-banner-subtitle {
+      font-size: 1.1rem;
+    }
+
     .contact-hub-section {
       padding: 60px 20px;
     }
@@ -205,10 +272,52 @@
   "name": "Contact Hub",
   "settings": [
     {
+      "type": "header",
+      "content": "Hero Banner"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_banner",
+      "label": "Show Hero Banner",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner Background Image",
+      "info": "Optional - defaults to gradient if no image selected"
+    },
+    {
+      "type": "range",
+      "id": "banner_overlay",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "label": "Image Overlay Darkness",
+      "default": 40
+    },
+    {
+      "type": "text",
+      "id": "banner_title",
+      "label": "Banner Title",
+      "default": "CONTACT US"
+    },
+    {
+      "type": "text",
+      "id": "banner_subtitle",
+      "label": "Banner Subtitle",
+      "default": "We're here to help you find your perfect style"
+    },
+    {
+      "type": "header",
+      "content": "Section Content"
+    },
+    {
       "type": "text",
       "id": "title",
       "label": "Title",
-      "default": "CONTACT US"
+      "default": "How Can We Help?"
     },
     {
       "type": "textarea",

@@ -1,0 +1,446 @@
+{% comment %}
+  StyleCare Quiz Section
+  Interactive style quiz to match users with their perfect aesthetic
+{% endcomment %}
+
+<div class="stylecare-quiz-section">
+  <div class="quiz-container">
+    <!-- Quiz Header -->
+    <div class="quiz-header">
+      <h1 class="quiz-title">{{ section.settings.quiz_title }}</h1>
+      <p class="quiz-subtitle">{{ section.settings.quiz_subtitle }}</p>
+      <div class="quiz-progress">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <p class="progress-text">Question <span class="current-question">1</span> of <span class="total-questions">8</span></p>
+      </div>
+    </div>
+
+    <!-- Quiz Questions -->
+    <div class="quiz-content">
+      <div class="quiz-question active" data-question="1">
+        <h2 class="question-title">What's your go-to weekend outfit?</h2>
+        <div class="quiz-options">
+          <button class="quiz-option" data-value="casual-chic">
+            <i class="fas fa-tshirt"></i>
+            <span>Casual & Comfortable</span>
+            <p>Jeans, sneakers, and a cozy sweater</p>
+          </button>
+          <button class="quiz-option" data-value="minimalist">
+            <i class="fas fa-gem"></i>
+            <span>Minimalist & Clean</span>
+            <p>Neutral tones, simple silhouettes</p>
+          </button>
+          <button class="quiz-option" data-value="trendy">
+            <i class="fas fa-star"></i>
+            <span>Trendy & Bold</span>
+            <p>Statement pieces, latest trends</p>
+          </button>
+          <button class="quiz-option" data-value="elegant">
+            <i class="fas fa-crown"></i>
+            <span>Elegant & Polished</span>
+            <p>Tailored pieces, classic looks</p>
+          </button>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-question="2">
+        <h2 class="question-title">What's your ideal color palette?</h2>
+        <div class="quiz-options">
+          <button class="quiz-option" data-value="neutrals">
+            <div class="color-preview">
+              <span style="background: #f5f5f5"></span>
+              <span style="background: #e8e8e8"></span>
+              <span style="background: #d4d4d4"></span>
+            </div>
+            <span>Soft Neutrals</span>
+            <p>Beige, cream, white, grey</p>
+          </button>
+          <button class="quiz-option" data-value="earthy">
+            <div class="color-preview">
+              <span style="background: #c9a88a"></span>
+              <span style="background: #9b7e6b"></span>
+              <span style="background: #7d6652"></span>
+            </div>
+            <span>Earthy Tones</span>
+            <p>Brown, tan, olive, rust</p>
+          </button>
+          <button class="quiz-option" data-value="pastels">
+            <div class="color-preview">
+              <span style="background: #ffd6e7"></span>
+              <span style="background: #c8e7f5"></span>
+              <span style="background: #e7d4f5"></span>
+            </div>
+            <span>Soft Pastels</span>
+            <p>Pink, lavender, baby blue</p>
+          </button>
+          <button class="quiz-option" data-value="monochrome">
+            <div class="color-preview">
+              <span style="background: #000000"></span>
+              <span style="background: #808080"></span>
+              <span style="background: #ffffff"></span>
+            </div>
+            <span>Monochrome</span>
+            <p>Black, white, grey only</p>
+          </button>
+        </div>
+      </div>
+
+      <!-- More questions would go here -->
+      <div class="quiz-question" data-question="3">
+        <h2 class="question-title">We're finding your perfect matches...</h2>
+        <div class="quiz-loading">
+          <div class="loading-spinner"></div>
+          <p>Analyzing your style preferences</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz Navigation -->
+    <div class="quiz-navigation">
+      <button class="quiz-btn quiz-btn-back" disabled>
+        <i class="fas fa-arrow-left"></i> Back
+      </button>
+      <button class="quiz-btn quiz-btn-next">
+        Continue <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+{% style %}
+  .stylecare-quiz-section {
+    background: linear-gradient(135deg, #fdfbfb 0%, #f7f4f4 100%);
+    min-height: 100vh;
+    padding: 60px 20px;
+  }
+
+  .quiz-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .quiz-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .quiz-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-charcoal, #2d2d2d);
+    margin-bottom: 10px;
+  }
+
+  .quiz-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-grey, #666);
+    margin-bottom: 30px;
+  }
+
+  .quiz-progress {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-blush, #f4a8b8) 0%, var(--color-rose, #e88ea7) 100%);
+    transition: width 0.3s ease;
+    border-radius: 10px;
+  }
+
+  .progress-text {
+    font-size: 0.9rem;
+    color: var(--color-grey, #666);
+    text-align: center;
+  }
+
+  .quiz-content {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    min-height: 400px;
+  }
+
+  .quiz-question {
+    display: none;
+  }
+
+  .quiz-question.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .question-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--color-charcoal, #2d2d2d);
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .quiz-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .quiz-option {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 25px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .quiz-option:hover {
+    border-color: var(--color-blush, #f4a8b8);
+    box-shadow: 0 5px 15px rgba(244, 168, 184, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .quiz-option.selected {
+    border-color: var(--color-rose, #e88ea7);
+    background: linear-gradient(135deg, #fff5f7 0%, #ffffff 100%);
+  }
+
+  .quiz-option i {
+    font-size: 2rem;
+    color: var(--color-rose, #e88ea7);
+    margin-bottom: 5px;
+  }
+
+  .quiz-option span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-charcoal, #2d2d2d);
+  }
+
+  .quiz-option p {
+    font-size: 0.9rem;
+    color: var(--color-grey, #666);
+    margin: 0;
+  }
+
+  .color-preview {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 5px;
+  }
+
+  .color-preview span {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #e0e0e0;
+  }
+
+  .quiz-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .quiz-btn {
+    flex: 1;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .quiz-btn-back {
+    background: white;
+    color: var(--color-charcoal, #2d2d2d);
+    border: 2px solid #e0e0e0;
+  }
+
+  .quiz-btn-back:hover:not(:disabled) {
+    background: #f5f5f5;
+  }
+
+  .quiz-btn-back:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .quiz-btn-next {
+    background: linear-gradient(135deg, var(--color-blush, #f4a8b8) 0%, var(--color-rose, #e88ea7) 100%);
+    color: white;
+  }
+
+  .quiz-btn-next:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(244, 168, 184, 0.3);
+  }
+
+  .quiz-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    gap: 20px;
+  }
+
+  .loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--color-rose, #e88ea7);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .quiz-loading p {
+    font-size: 1.1rem;
+    color: var(--color-grey, #666);
+  }
+
+  @media (max-width: 768px) {
+    .quiz-title {
+      font-size: 2rem;
+    }
+
+    .quiz-content {
+      padding: 25px;
+    }
+
+    .question-title {
+      font-size: 1.5rem;
+    }
+
+    .quiz-options {
+      grid-template-columns: 1fr;
+    }
+
+    .quiz-navigation {
+      flex-direction: column;
+    }
+  }
+{% endstyle %}
+
+<script>
+  // Simple quiz navigation
+  let currentQuestion = 1;
+  const totalQuestions = 3;
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const backBtn = document.querySelector('.quiz-btn-back');
+    const nextBtn = document.querySelector('.quiz-btn-next');
+    const options = document.querySelectorAll('.quiz-option');
+    
+    // Handle option selection
+    options.forEach(option => {
+      option.addEventListener('click', function() {
+        // Remove selected class from siblings
+        this.parentElement.querySelectorAll('.quiz-option').forEach(opt => {
+          opt.classList.remove('selected');
+        });
+        // Add selected class to this option
+        this.classList.add('selected');
+      });
+    });
+
+    // Next button
+    nextBtn.addEventListener('click', function() {
+      if (currentQuestion < totalQuestions) {
+        currentQuestion++;
+        updateQuiz();
+      } else {
+        // Quiz complete - redirect to results
+        window.location.href = '/pages/quiz-results';
+      }
+    });
+
+    // Back button
+    backBtn.addEventListener('click', function() {
+      if (currentQuestion > 1) {
+        currentQuestion--;
+        updateQuiz();
+      }
+    });
+
+    function updateQuiz() {
+      // Update questions
+      document.querySelectorAll('.quiz-question').forEach((q, index) => {
+        q.classList.toggle('active', index + 1 === currentQuestion);
+      });
+
+      // Update progress
+      const progress = (currentQuestion / totalQuestions) * 100;
+      document.querySelector('.progress-fill').style.width = progress + '%';
+      document.querySelector('.current-question').textContent = currentQuestion;
+
+      // Update buttons
+      backBtn.disabled = currentQuestion === 1;
+      
+      if (currentQuestion === totalQuestions) {
+        nextBtn.innerHTML = 'See My Results <i class="fas fa-check"></i>';
+      } else {
+        nextBtn.innerHTML = 'Continue <i class="fas fa-arrow-right"></i>';
+      }
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Style Quiz",
+  "settings": [
+    {
+      "type": "text",
+      "id": "quiz_title",
+      "label": "Quiz Title",
+      "default": "Find Your Perfect Style"
+    },
+    {
+      "type": "text",
+      "id": "quiz_subtitle",
+      "label": "Quiz Subtitle",
+      "default": "Answer a few quick questions to discover your clean girl aesthetic"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Style Quiz"
+    }
+  ]
+}
+{% endschema %}

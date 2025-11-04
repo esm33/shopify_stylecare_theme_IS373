@@ -1,0 +1,435 @@
+{% comment %}
+  StyleCare Contact Hub Section
+  Modern grid layout with contact cards
+{% endcomment %}
+
+<!-- Hero Banner -->
+{% if section.settings.show_banner %}
+<div class="contact-hero-banner" style="
+  {% if section.settings.banner_image %}
+    background-image: linear-gradient(rgba(0, 0, 0, {{ section.settings.banner_overlay | divided_by: 100.0 }}), rgba(0, 0, 0, {{ section.settings.banner_overlay | divided_by: 100.0 }})), url('{{ section.settings.banner_image | image_url: width: 1920 }}');
+  {% else %}
+    background: linear-gradient(135deg, var(--color-blush, #f4a8b8) 0%, var(--color-rose, #e88ea7) 100%);
+  {% endif %}
+">
+  <div class="contact-banner-content">
+    <h1 class="contact-banner-title">{{ section.settings.banner_title }}</h1>
+    {% if section.settings.banner_subtitle != blank %}
+      <p class="contact-banner-subtitle">{{ section.settings.banner_subtitle }}</p>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+
+<div class="contact-hub-section">
+  <div class="contact-hub-container">
+    <!-- Hero Header -->
+    <div class="contact-hub-header">
+      <h1 class="contact-hub-title">{{ section.settings.title }}</h1>
+      <p class="contact-hub-subtitle">{{ section.settings.subtitle }}</p>
+    </div>
+
+    <!-- Contact Cards Grid -->
+    <div class="contact-cards-grid">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'contact_card' %}
+            <a href="{{ block.settings.link }}" class="contact-card" {{ block.shopify_attributes }}>
+              <div class="contact-card-icon">
+                <i class="fas fa-{{ block.settings.icon }}"></i>
+              </div>
+              <h3 class="contact-card-title">{{ block.settings.card_title }}</h3>
+              <p class="contact-card-description">{{ block.settings.description }}</p>
+              <div class="contact-card-cta">
+                {{ block.settings.cta_text }}
+              </div>
+            </a>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% style %}
+  .contact-hero-banner {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 0;
+  }
+
+  .contact-banner-content {
+    text-align: center;
+    color: white;
+    z-index: 2;
+    padding: 20px;
+    max-width: 800px;
+  }
+
+  .contact-banner-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .contact-banner-subtitle {
+    font-size: 1.3rem;
+    color: white;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .contact-hub-section {
+    background: linear-gradient(135deg, #fdfbfb 0%, #f7f4f4 100%);
+    padding: 80px 20px;
+    min-height: 100vh;
+  }
+
+  .contact-hub-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .contact-hub-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .contact-hub-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-charcoal, #2d2d2d);
+    margin-bottom: 15px;
+    letter-spacing: -0.02em;
+  }
+
+  .contact-hub-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-grey, #666);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contact-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .contact-card {
+    background: white;
+    border-radius: 20px;
+    padding: 50px 40px;
+    text-align: center;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-blush, #f4a8b8) 0%, var(--color-rose, #e88ea7) 100%);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(244, 168, 184, 0.25);
+  }
+
+  .contact-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .contact-card-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #fff5f7 0%, #ffffff 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    transition: all 0.4s ease;
+  }
+
+  .contact-card:hover .contact-card-icon {
+    background: linear-gradient(135deg, var(--color-blush, #f4a8b8) 0%, var(--color-rose, #e88ea7) 100%);
+  }
+
+  .contact-card-icon i {
+    font-size: 2rem;
+    color: var(--color-rose, #e88ea7);
+    transition: all 0.4s ease;
+  }
+
+  .contact-card:hover .contact-card-icon i {
+    color: white;
+    transform: scale(1.1);
+  }
+
+  .contact-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-charcoal, #2d2d2d);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .contact-card-description {
+    font-size: 1rem;
+    color: var(--color-grey, #666);
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1;
+  }
+
+  .contact-card-cta {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-rose, #e88ea7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 12px 30px;
+    border: 2px solid var(--color-rose, #e88ea7);
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .contact-card:hover .contact-card-cta {
+    background: linear-gradient(135deg, var(--color-blush, #f4a8b8) 0%, var(--color-rose, #e88ea7) 100%);
+    color: white;
+    border-color: transparent;
+  }
+
+  @media (max-width: 768px) {
+    .contact-hero-banner {
+      height: 300px;
+    }
+
+    .contact-banner-title {
+      font-size: 2.5rem;
+    }
+
+    .contact-banner-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .contact-hub-section {
+      padding: 60px 20px;
+    }
+
+    .contact-hub-title {
+      font-size: 2.2rem;
+    }
+
+    .contact-hub-subtitle {
+      font-size: 1rem;
+    }
+
+    .contact-cards-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .contact-card {
+      padding: 40px 30px;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .contact-cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Contact Hub",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero Banner"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_banner",
+      "label": "Show Hero Banner",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner Background Image",
+      "info": "Optional - defaults to gradient if no image selected"
+    },
+    {
+      "type": "range",
+      "id": "banner_overlay",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "label": "Image Overlay Darkness",
+      "default": 40
+    },
+    {
+      "type": "text",
+      "id": "banner_title",
+      "label": "Banner Title",
+      "default": "CONTACT US"
+    },
+    {
+      "type": "text",
+      "id": "banner_subtitle",
+      "label": "Banner Subtitle",
+      "default": "We're here to help you find your perfect style"
+    },
+    {
+      "type": "header",
+      "content": "Section Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "How Can We Help?"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Do you have any questions? Check out our FAQs or feel free to reach out and send us an email."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "contact_card",
+      "name": "Contact Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Font Awesome Icon",
+          "info": "Enter icon name without 'fa-' prefix (e.g., 'question-circle', 'envelope', 'star')",
+          "default": "question-circle"
+        },
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Card Title",
+          "default": "FAQs"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Your question can be already answered here."
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Text",
+          "default": "GO TO FAQs"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Card Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Hub",
+      "blocks": [
+        {
+          "type": "contact_card",
+          "settings": {
+            "icon": "question-circle",
+            "card_title": "FAQs",
+            "description": "Your question can be already answered here.",
+            "cta_text": "GO TO FAQs",
+            "link": "/pages/faq"
+          }
+        },
+        {
+          "type": "contact_card",
+          "settings": {
+            "icon": "envelope",
+            "card_title": "EMAIL",
+            "description": "Send us an email to speak to a customer satisfaction representative directly.",
+            "cta_text": "INFO@STYLECARE.COM",
+            "link": "mailto:info@stylecare.com"
+          }
+        },
+        {
+          "type": "contact_card",
+          "settings": {
+            "icon": "users",
+            "card_title": "INFLUENCERS",
+            "description": "Interested in partnering with us?",
+            "cta_text": "GET IN TOUCH",
+            "link": "/pages/influencers"
+          }
+        },
+        {
+          "type": "contact_card",
+          "settings": {
+            "icon": "newspaper",
+            "card_title": "PRESS",
+            "description": "Do you have any PR requests?",
+            "cta_text": "GET IN TOUCH",
+            "link": "/pages/press"
+          }
+        },
+        {
+          "type": "contact_card",
+          "settings": {
+            "icon": "store",
+            "card_title": "CAMPUS REPS",
+            "description": "Interested in becoming a StyleCare campus ambassador?",
+            "cta_text": "APPLY HERE",
+            "link": "/pages/campus-reps"
+          }
+        },
+        {
+          "type": "contact_card",
+          "settings": {
+            "icon": "comments",
+            "card_title": "SUPPORT",
+            "description": "Need help with an order or have a question?",
+            "cta_text": "GET HELP",
+            "link": "/pages/support"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

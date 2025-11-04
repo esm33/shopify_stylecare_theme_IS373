@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "stylecare_quiz": {
+      "type": "stylecare-quiz",
+      "settings": {
+        "quiz_title": "Find Your Perfect Style",
+        "quiz_subtitle": "Answer a few quick questions to discover your clean girl aesthetic"
+      }
+    }
+  },
+  "order": [
+    "stylecare_quiz"
+  ]
+}

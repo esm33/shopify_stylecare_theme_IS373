@@ -55,12 +55,12 @@
         "enable_parallax": true,
         "hero_title": "Discover Your Clean Girl Aesthetic",
         "hero_subtitle": "Take our personalized quiz and get matched with curated capsules perfect for college style",
-        "cta_primary_text": "Get Started",
-        "cta_primary_link": "",
-        "cta_primary_icon": "",
-        "cta_secondary_text": "Learn More",
-        "cta_secondary_link": "",
-        "cta_secondary_icon": ""
+        "cta_primary_text": "Take the Quiz",
+        "cta_primary_link": "/pages/quiz",
+        "cta_primary_icon": "fa-magic",
+        "cta_secondary_text": "Shop Collections",
+        "cta_secondary_link": "/collections/all",
+        "cta_secondary_icon": "fa-shopping-bag"
       }
     },
     "stylecare_value_props": {
@@ -118,38 +118,38 @@
           "settings": {
             "badge": "Most Popular",
             "icon": "fa-sparkles",
-            "title": "Style Consultation",
-            "price": "$299",
-            "description": "Personalized style assessment and wardrobe recommendations",
-            "features": "60-minute consultation\nPersonalized style guide\nColor analysis\nWardrobe assessment",
-            "cta_text": "Get Started",
-            "cta_link": ""
+            "title": "Style Quiz & Capsule",
+            "price": "Free",
+            "description": "Take our quiz and get matched with your perfect capsule wardrobe and influencer recommendations",
+            "features": "2-minute personalized quiz\nCurated capsule matches\nInfluencer style profiles\nShoppable recommendations",
+            "cta_text": "Take the Quiz",
+            "cta_link": "/pages/quiz"
           }
         },
         "service_2": {
           "type": "service",
           "settings": {
             "badge": "",
-            "icon": "fa-sparkles",
-            "title": "Style Consultation",
-            "price": "$299",
-            "description": "Personalized style assessment and wardrobe recommendations",
-            "features": "60-minute consultation\nPersonalized style guide\nColor analysis\nWardrobe assessment",
-            "cta_text": "Get Started",
-            "cta_link": ""
+            "icon": "fa-tshirt",
+            "title": "Designer Rentals",
+            "price": "From $29",
+            "description": "Rent high-end pieces for special occasions or everyday luxury without the commitment",
+            "features": "Designer brands\nFlexible rental periods\nFree shipping both ways\nProfessional cleaning included",
+            "cta_text": "Browse Rentals",
+            "cta_link": "/collections/rentals"
           }
         },
         "service_3": {
           "type": "service",
           "settings": {
             "badge": "",
-            "icon": "fa-sparkles",
-            "title": "Style Consultation",
-            "price": "$299",
-            "description": "Personalized style assessment and wardrobe recommendations",
-            "features": "60-minute consultation\nPersonalized style guide\nColor analysis\nWardrobe assessment",
-            "cta_text": "Get Started",
-            "cta_link": ""
+            "icon": "fa-comments",
+            "title": "1-on-1 Styling",
+            "price": "$49",
+            "description": "Work directly with our stylists for personalized outfit curation and shopping assistance",
+            "features": "30-minute video consultation\nCustom outfit recommendations\nBudget-conscious suggestions\nFollow-up support",
+            "cta_text": "Book Session",
+            "cta_link": "/pages/book-styling"
           }
         }
       },

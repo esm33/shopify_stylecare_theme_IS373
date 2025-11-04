@@ -101,6 +101,111 @@
             "followers": "78K",
             "profile_link": ""
           }
+        },
+        "influencer_7": {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_name": "Maya Budget",
+            "instagram_handle": "mayabudget",
+            "verified": true,
+            "rating": 5,
+            "style_aesthetic": "Budget-Friendly, Casual, Everyday",
+            "description": "Proving you don't need to break the bank to look amazing. Sharing affordable finds and styling tips.",
+            "typical_shops": "Target, Amazon, Walmart, Old Navy",
+            "price_range": "$",
+            "followers": "425K",
+            "profile_link": ""
+          }
+        },
+        "influencer_8": {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_name": "Jade Thrift",
+            "instagram_handle": "jadethrift",
+            "verified": true,
+            "rating": 5,
+            "style_aesthetic": "Thrifted, Vintage, Eclectic",
+            "description": "Thrift store queen sharing secondhand gems and sustainable fashion on a student budget.",
+            "typical_shops": "Goodwill, Depop, Poshmark, ThredUp",
+            "price_range": "$",
+            "followers": "185K",
+            "profile_link": ""
+          }
+        },
+        "influencer_9": {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_name": "Sienna Sporty",
+            "instagram_handle": "siennasporty",
+            "verified": false,
+            "rating": 4,
+            "style_aesthetic": "Athleisure, Active, Comfortable",
+            "description": "Athleisure enthusiast styling workout wear for campus life. Comfort meets style on a budget.",
+            "typical_shops": "Amazon Essentials, Target, Walmart, TJ Maxx",
+            "price_range": "$",
+            "followers": "142K",
+            "profile_link": ""
+          }
+        },
+        "influencer_10": {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_name": "Chloe Cottage",
+            "instagram_handle": "chloecottage",
+            "verified": true,
+            "rating": 5,
+            "style_aesthetic": "Cottagecore, Romantic, Whimsical",
+            "description": "Living the cottagecore dream with affordable pieces. Flowy dresses and whimsical vibes.",
+            "typical_shops": "Shein, Amazon, Target, Ross",
+            "price_range": "$",
+            "followers": "268K",
+            "profile_link": ""
+          }
+        },
+        "influencer_11": {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_name": "Nora Grunge",
+            "instagram_handle": "noragrunge",
+            "verified": false,
+            "rating": 4,
+            "style_aesthetic": "Grunge, Alternative, Dark",
+            "description": "Alternative style on a college budget. Band tees, plaid, and edgy accessories for under $20.",
+            "typical_shops": "Hot Topic, Amazon, Walmart, Forever 21",
+            "price_range": "$",
+            "followers": "95K",
+            "profile_link": ""
+          }
+        },
+        "influencer_12": {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_name": "Leah Preppy",
+            "instagram_handle": "leahpreppy",
+            "verified": true,
+            "rating": 5,
+            "style_aesthetic": "Preppy, Classic, Polished",
+            "description": "Preppy style with a budget twist. Cardigans, collars, and classic pieces from affordable retailers.",
+            "typical_shops": "Target, Old Navy, Gap, Amazon",
+            "price_range": "$",
+            "followers": "310K",
+            "profile_link": ""
+          }
+        },
+        "influencer_13": {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_name": "Tessa Trendy",
+            "instagram_handle": "tessatrendy",
+            "verified": true,
+            "rating": 4,
+            "style_aesthetic": "Fast Fashion, Trendy, Affordable",
+            "description": "Staying on trend without the designer price tag. Mixing Shein finds with basics for viral looks.",
+            "typical_shops": "Shein, H&M, Forever 21, Amazon Fashion",
+            "price_range": "$",
+            "followers": "520K",
+            "profile_link": ""
+          }
         }
       },
       "block_order": [
@@ -109,7 +214,14 @@
         "influencer_3",
         "influencer_4",
         "influencer_5",
-        "influencer_6"
+        "influencer_6",
+        "influencer_7",
+        "influencer_8",
+        "influencer_9",
+        "influencer_10",
+        "influencer_11",
+        "influencer_12",
+        "influencer_13"
       ],
       "settings": {
         "section_title": "Our Style Influencers",

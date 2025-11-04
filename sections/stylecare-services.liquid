@@ -91,11 +91,15 @@
   
   .services-grid {
     gap: var(--space-3xl);
+    justify-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
   }
   
   .grid-auto-fit-lg {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: center;
   }
   
   .service-card {
@@ -105,6 +109,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    max-width: 400px;
   }
   
   .service-badge {
@@ -179,8 +185,29 @@
       padding: var(--space-5xl) var(--space-lg);
     }
     
+    .services-grid {
+      max-width: 100%;
+    }
+    
     .grid-auto-fit-lg {
       grid-template-columns: 1fr;
+      justify-items: center;
+    }
+    
+    .service-card {
+      max-width: 100%;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .grid-auto-fit-lg {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1025px) {
+    .grid-auto-fit-lg {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 {% endstyle %}

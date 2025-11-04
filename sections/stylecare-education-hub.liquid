@@ -652,6 +652,12 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // DEMO MODE - Set to true to simulate cart without real products
+  const DEMO_MODE = true;
+  
+  // Demo cart counter
+  let demoCartCount = 0;
+  
   // Get all add to cart buttons
   const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
   
@@ -660,17 +666,74 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       
       const productId = this.getAttribute('data-product-id');
-      
-      // Validate product ID
-      if (!productId || productId === '') {
-        alert('Product ID not configured. Please add a product ID in the theme editor.');
-        return;
-      }
+      const videoTitle = this.closest('.video-card').querySelector('.video-title').textContent;
+      const videoPrice = this.closest('.video-card').querySelector('.price').textContent;
       
       // Add loading state
       const originalText = this.innerHTML;
       this.classList.add('loading');
       this.innerHTML = '<i class="fas fa-spinner"></i> Adding...';
+      
+      // Simulate network delay
+      await new Promise(resolve => setTimeout(resolve, 800));
+      
+      // DEMO MODE: Simulate successful add to cart
+      if (DEMO_MODE && (!productId || productId === '')) {
+        console.log('🎬 DEMO MODE: Simulating add to cart');
+        console.log('Video:', videoTitle);
+        console.log('Price:', videoPrice);
+        
+        // Increment demo cart count
+        demoCartCount++;
+        
+        // Update cart count display
+        const cartCount = document.querySelector('.cart-count, .cart-icon__count, [data-cart-count]');
+        if (cartCount) {
+          cartCount.textContent = demoCartCount;
+          // Add pulse animation to cart icon
+          cartCount.style.animation = 'pulse 0.5s ease';
+          setTimeout(() => {
+            cartCount.style.animation = '';
+          }, 500);
+        }
+        
+        // Show success state
+        this.classList.remove('loading');
+        this.classList.add('added');
+        this.innerHTML = '<i class="fas fa-check"></i> Added to Cart!';
+        
+        // Show demo notification
+        showDemoNotification(videoTitle, videoPrice);
+        
+        // Dispatch custom event
+        document.dispatchEvent(new CustomEvent('cart:updated', {
+          detail: { 
+            demo: true,
+            item: {
+              title: videoTitle,
+              price: videoPrice,
+              quantity: 1
+            },
+            item_count: demoCartCount
+          }
+        }));
+        
+        // Reset button after 2 seconds
+        setTimeout(() => {
+          this.classList.remove('added');
+          this.innerHTML = originalText;
+        }, 2000);
+        
+        return;
+      }
+      
+      // REAL MODE: Validate product ID
+      if (!productId || productId === '') {
+        this.classList.remove('loading');
+        this.innerHTML = originalText;
+        alert('Product ID not configured. Please add a product ID in the theme editor or enable DEMO_MODE.');
+        return;
+      }
       
       try {
         // Add item to cart using Shopify Cart API
@@ -739,9 +802,118 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
+  // Demo notification function
+  function showDemoNotification(title, price) {
+    // Remove existing notification if any
+    const existing = document.querySelector('.demo-notification');
+    if (existing) {
+      existing.remove();
+    }
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = 'demo-notification';
+    notification.innerHTML = `
+      <div class="demo-notification-content">
+        <div class="demo-notification-header">
+          <i class="fas fa-check-circle"></i>
+          <strong>Added to Cart (Demo Mode)</strong>
+        </div>
+        <div class="demo-notification-body">
+          <p><strong>${title}</strong></p>
+          <p>${price}</p>
+        </div>
+        <div class="demo-notification-footer">
+          <small>🎬 This is a demo. No real products were added.</small>
+        </div>
+      </div>
+    `;
+    
+    // Add styles for notification
+    const style = document.createElement('style');
+    style.textContent = `
+      .demo-notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        max-width: 350px;
+        z-index: 10000;
+        animation: slideIn 0.3s ease;
+      }
+      
+      @keyframes slideIn {
+        from {
+          transform: translateX(400px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      
+      .demo-notification-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #48bb78;
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+      }
+      
+      .demo-notification-header i {
+        font-size: 1.5rem;
+      }
+      
+      .demo-notification-body {
+        border-top: 1px solid #e2e8f0;
+        border-bottom: 1px solid #e2e8f0;
+        padding: 12px 0;
+        margin-bottom: 12px;
+      }
+      
+      .demo-notification-body p {
+        margin: 5px 0;
+        color: #2d3748;
+      }
+      
+      .demo-notification-footer {
+        color: #718096;
+        font-style: italic;
+      }
+      
+      @media (max-width: 768px) {
+        .demo-notification {
+          right: 10px;
+          left: 10px;
+          max-width: none;
+        }
+      }
+    `;
+    
+    document.head.appendChild(style);
+    document.body.appendChild(notification);
+    
+    // Auto remove after 4 seconds
+    setTimeout(() => {
+      notification.style.animation = 'slideIn 0.3s ease reverse';
+      setTimeout(() => {
+        notification.remove();
+      }, 300);
+    }, 4000);
+  }
+  
   // Listen for cart updates from other sources
   document.addEventListener('cart:updated', function(event) {
     console.log('Cart updated:', event.detail);
+    if (event.detail.demo) {
+      console.log('🎬 Demo cart item added:', event.detail.item);
+      console.log('🎬 Demo cart count:', event.detail.item_count);
+    }
   });
 });
 </script>

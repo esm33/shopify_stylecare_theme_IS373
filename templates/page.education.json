@@ -167,7 +167,7 @@
             "instructor_name": "Sarah Martinez",
             "premium_level": "Advanced",
             "video_price": "$49.99",
-            "product_id": ""
+            "product_id": "15300841800049"
           }
         },
         "premium_2": {
@@ -181,7 +181,7 @@
             "instructor_name": "Jessica Chen",
             "premium_level": "Intermediate",
             "video_price": "$79.99",
-            "product_id": ""
+            "product_id": "15300842455409"
           }
         },
         "premium_3": {
@@ -195,7 +195,7 @@
             "instructor_name": "Amanda Foster",
             "premium_level": "Advanced",
             "video_price": "$99.99",
-            "product_id": ""
+            "product_id": "15300842946929"
           }
         },
         "premium_4": {
@@ -209,7 +209,7 @@
             "instructor_name": "Rachel Kim",
             "premium_level": "Advanced",
             "video_price": "$129.99",
-            "product_id": ""
+            "product_id": "15300843143537"
           }
         },
         "premium_5": {
@@ -223,7 +223,7 @@
             "instructor_name": "Victoria Laurent",
             "premium_level": "Intermediate",
             "video_price": "$69.99",
-            "product_id": ""
+            "product_id": "15300843438449"
           }
         },
         "premium_6": {
@@ -237,7 +237,7 @@
             "instructor_name": "Maya Green",
             "premium_level": "Intermediate",
             "video_price": "$59.99",
-            "product_id": ""
+            "product_id": "15300843569521"
           }
         }
       },

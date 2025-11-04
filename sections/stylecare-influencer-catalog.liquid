@@ -77,6 +77,29 @@
                   <p class="influencer-description">{{ block.settings.description }}</p>
                 {% endif %}
 
+                <!-- Typical Shops & Price Range -->
+                <div class="influencer-details">
+                  {% if block.settings.typical_shops != blank %}
+                    <div class="detail-item">
+                      <div class="detail-label">
+                        <i class="fas fa-store"></i>
+                        <span>Typical Shops:</span>
+                      </div>
+                      <div class="detail-value">{{ block.settings.typical_shops }}</div>
+                    </div>
+                  {% endif %}
+
+                  {% if block.settings.price_range != blank %}
+                    <div class="detail-item">
+                      <div class="detail-label">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>Price Range:</span>
+                      </div>
+                      <div class="detail-value">{{ block.settings.price_range }}</div>
+                    </div>
+                  {% endif %}
+                </div>
+
                 <!-- Stats -->
                 {% if block.settings.followers != blank %}
                   <div class="influencer-stats">
@@ -275,7 +298,45 @@
     color: var(--color-grey, #666);
     line-height: 1.6;
     margin: 8px 0;
-    flex-grow: 1;
+  }
+
+  .influencer-details {
+    background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+    border-radius: 12px;
+    padding: 15px;
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .detail-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-charcoal, #2d2d2d);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .detail-label i {
+    color: var(--color-blush, #f4a8b8);
+    font-size: 0.9rem;
+  }
+
+  .detail-value {
+    font-size: 0.95rem;
+    color: var(--color-grey, #666);
+    line-height: 1.5;
+    padding-left: 24px;
   }
 
   .influencer-stats {
@@ -414,6 +475,20 @@
           "id": "description",
           "label": "Description",
           "default": "Minimalist fashion enthusiast sharing daily outfit inspiration and capsule wardrobe tips."
+        },
+        {
+          "type": "text",
+          "id": "typical_shops",
+          "label": "Typical Shops",
+          "info": "Comma-separated list (e.g., Zara, H&M, Urban Outfitters)",
+          "default": "Etsy Vintage, Goodwill, Mango"
+        },
+        {
+          "type": "text",
+          "id": "price_range",
+          "label": "Price Range",
+          "info": "Use $ symbols or text (e.g., $, $$, $$$, $$$$)",
+          "default": "$"
         },
         {
           "type": "text",

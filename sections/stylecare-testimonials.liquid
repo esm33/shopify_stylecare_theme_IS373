@@ -18,8 +18,11 @@
       <div class="testimonials-carousel" id="testimonialsCarousel">
         {% for block in section.blocks %}
           <div class="testimonial-card" {{ block.shopify_attributes }}>
-            <!-- Left Half - Banner with Gradient -->
-            <div class="testimonial-banner">
+            <!-- Left Half - Banner with Image or Gradient -->
+            <div class="testimonial-banner" 
+                 {% if block.settings.banner_image %}
+                   style="background-image: url('{{ block.settings.banner_image | image_url: width: 800 }}');"
+                 {% endif %}>
               <div class="banner-overlay">
                 <div class="quote-icon-large">
                   <i class="fas fa-quote-left"></i>
@@ -144,6 +147,9 @@
       var(--color-blush, #f4a8b8) 0%, 
       var(--color-rose, #e88ea7) 50%,
       #a8689a 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     display: flex;
     align-items: center;
@@ -158,6 +164,10 @@
     gap: 30px;
     padding: 40px;
     text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    width: 100%;
+    height: 100%;
   }
 
   .quote-icon-large {
@@ -500,6 +510,12 @@ document.addEventListener('DOMContentLoaded', function() {
       "type": "testimonial",
       "name": "Testimonial",
       "settings": [
+        {
+          "type": "image_picker",
+          "id": "banner_image",
+          "label": "Banner Image",
+          "info": "Recommended size: 800x800px. If no image is selected, a gradient will be used."
+        },
         {
           "type": "range",
           "id": "rating",

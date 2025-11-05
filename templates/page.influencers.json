@@ -15,6 +15,7 @@
         "influencer_1": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/b96c3a162b0b86cab3cc5310780d874a_1c37e04b-a087-4790-b249-55560e3541e2.jpg",
             "influencer_name": "Emma Clean",
             "instagram_handle": "emmaclean",
             "verified": true,
@@ -30,6 +31,7 @@
         "influencer_2": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/Baggy-PRINT-TSHIRT-AND-JEANS_3513485a-889d-4bad-95c7-d5a2cfb9f382.webp",
             "influencer_name": "Sophie Chic",
             "instagram_handle": "sophiechic",
             "verified": true,
@@ -45,6 +47,7 @@
         "influencer_3": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/images_dde8196d-2fd6-45c0-9297-913ab3ba7eb3.jpg",
             "influencer_name": "Ava Luxe",
             "instagram_handle": "avaluxe",
             "verified": true,
@@ -60,6 +63,7 @@
         "influencer_4": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/boho-romantic-trend-308400-1689846947245-main_ca3cb3d7-b3a3-4072-bc6f-c292503b0c34.jpg",
             "influencer_name": "Mia Boheme",
             "instagram_handle": "miaboheme",
             "verified": true,
@@ -75,6 +79,7 @@
         "influencer_5": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/03tpWlJRbMRXSLwGc.jpg",
             "influencer_name": "Zara Street",
             "instagram_handle": "zarastreet",
             "verified": true,
@@ -90,6 +95,7 @@
         "influencer_6": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/S985f3705136e4b3d866ef08281a30d21b_1200x1200_bdcb253d-07b0-461e-80af-c1214ea6e308.webp",
             "influencer_name": "Lily Pastel",
             "instagram_handle": "lilypastel",
             "verified": false,
@@ -105,6 +111,7 @@
         "influencer_7": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/0211109205942475a2f3fd6785fd0ba6661f47b7_cmy3657_3.webp",
             "influencer_name": "Maya Budget",
             "instagram_handle": "mayabudget",
             "verified": true,
@@ -120,6 +127,7 @@
         "influencer_8": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/download_231db0bc-d846-40c3-8487-cde4a58acfc1.jpg",
             "influencer_name": "Jade Thrift",
             "instagram_handle": "jadethrift",
             "verified": true,
@@ -135,6 +143,7 @@
         "influencer_9": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/images_12cfb9b2-743a-4a26-975e-0c2f70e23b98.jpg",
             "influencer_name": "Sienna Sporty",
             "instagram_handle": "siennasporty",
             "verified": false,
@@ -150,6 +159,7 @@
         "influencer_10": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/cottagecore-outfits-298325-1646341952908-main_b83fd44e-26a9-4ff0-a26f-0d89ff6d15b2.jpg",
             "influencer_name": "Chloe Cottage",
             "instagram_handle": "chloecottage",
             "verified": true,
@@ -165,6 +175,7 @@
         "influencer_11": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/a63cdcbdca60d8e5ab9631f74cdac1bf_03b37b38-6d0e-4859-92e3-9a1dde845a89.jpg",
             "influencer_name": "Nora Grunge",
             "instagram_handle": "noragrunge",
             "verified": false,
@@ -180,6 +191,7 @@
         "influencer_12": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/preppy-aesthetic-outfits-2.webp",
             "influencer_name": "Leah Preppy",
             "instagram_handle": "leahpreppy",
             "verified": true,
@@ -195,6 +207,7 @@
         "influencer_13": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/GettyImages-1132881730-bf9ba26b28a542498eea8330178dd2a5.jpg",
             "influencer_name": "Tessa Trendy",
             "instagram_handle": "tessatrendy",
             "verified": true,

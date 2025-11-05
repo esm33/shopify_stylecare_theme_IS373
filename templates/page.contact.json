@@ -83,6 +83,7 @@
       ],
       "settings": {
         "show_banner": true,
+        "banner_image": "shopify://shop_images/Add-a-subheading-5-1_4cf51efd-b47d-4582-a0af-0ac15ff5d7e2.png",
         "banner_overlay": 40,
         "banner_title": "CONTACT US",
         "banner_subtitle": "We're here to help you find your perfect style",

@@ -210,6 +210,7 @@
         "testimonial_1": {
           "type": "testimonial",
           "settings": {
+            "banner_image": "shopify://shop_images/yAVqgboksGdJKzCRAdcGN3_797a6944-6baf-4970-ab9a-baa97ec362c6.jpg",
             "rating": 5,
             "quote": "StyleCare transformed my wardrobe! The quiz matched me with pieces I actually love wearing every day.",
             "author_name": "Emma Rodriguez",
@@ -219,6 +220,7 @@
         "testimonial_2": {
           "type": "testimonial",
           "settings": {
+            "banner_image": "shopify://shop_images/images_2f489021-091f-439c-96a6-c902f513adb6.jpg",
             "rating": 5,
             "quote": "Finally found my clean girl aesthetic. The recommendations are spot-on and totally budget-friendly!",
             "author_name": "Madison Chen",
@@ -228,6 +230,7 @@
         "testimonial_3": {
           "type": "testimonial",
           "settings": {
+            "banner_image": "shopify://shop_images/winter_5151e43a-a108-42a3-9238-d91ffcef4e84.jpg",
             "rating": 5,
             "quote": "Love how easy it is to shop my capsule. Everything coordinates perfectly and I get compliments all the time!",
             "author_name": "Olivia Taylor",
@@ -292,6 +295,7 @@
         "faq_5"
       ],
       "settings": {
+        "banner_image": "shopify://shop_images/1684254248681.png",
         "title": "Frequently Asked Questions",
         "subtitle": "Answers about StyleCare, the quiz, and clean girl styling"
       }

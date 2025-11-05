@@ -9,10 +9,15 @@
   <div class="page-width">
     
     {%- if section.settings.show_hero -%}
-    <div class="education-hero">
-      <div class="hero-content">
-        <h1 class="hero-title">{{ section.settings.hero_title }}</h1>
-        <p class="hero-subtitle">{{ section.settings.hero_subtitle }}</p>
+    <div class="education-hero" 
+         {% if section.settings.hero_banner_image %}
+           style="background-image: url('{{ section.settings.hero_banner_image | image_url: width: 1920 }}');"
+         {% endif %}>
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <h1 class="hero-title">{{ section.settings.hero_title }}</h1>
+          <p class="hero-subtitle">{{ section.settings.hero_subtitle }}</p>
+        </div>
       </div>
     </div>
     {%- endif -%}
@@ -179,12 +184,27 @@
 
 /* Hero Section */
 .education-hero {
+  position: relative;
   text-align: center;
   padding: 80px 20px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-size: cover;
+  background-position: center;
   border-radius: 30px;
   margin-bottom: 80px;
   color: white;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .hero-title {
@@ -783,6 +803,12 @@ document.addEventListener('DOMContentLoaded', function() {
       "id": "show_hero",
       "label": "Show Hero Banner",
       "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_banner_image",
+      "label": "Hero Banner Image",
+      "info": "Recommended size: 1920px wide. If not set, gradient background will be used."
     },
     {
       "type": "text",

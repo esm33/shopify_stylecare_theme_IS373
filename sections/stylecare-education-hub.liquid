@@ -652,19 +652,6 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // DEMO MODE - Set to true to simulate cart without real products
-  // Set to false once you've added real product IDs
-  const DEMO_MODE = true;
-  
-  // Demo cart counter and items
-  let demoCartCount = parseInt(localStorage.getItem('demoCartCount') || '0');
-  let demoCartItems = JSON.parse(localStorage.getItem('demoCartItems') || '[]');
-  
-  // Update display on page load if in demo mode
-  if (DEMO_MODE && demoCartCount > 0) {
-    updateDemoCartDisplay();
-  }
-  
   // Get all add to cart buttons
   const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
   
@@ -675,75 +662,17 @@ document.addEventListener('DOMContentLoaded', function() {
       const productId = this.getAttribute('data-product-id');
       const videoCard = this.closest('.video-card');
       const videoTitle = videoCard ? videoCard.querySelector('.video-title')?.textContent : 'Premium Video';
-      const videoPrice = videoCard ? videoCard.querySelector('.price')?.textContent : '$0.00';
       
       // Add loading state
       const originalText = this.innerHTML;
       this.classList.add('loading');
       this.innerHTML = '<i class="fas fa-spinner"></i> Adding...';
       
-      // Simulate network delay
-      await new Promise(resolve => setTimeout(resolve, 800));
-      
-      // DEMO MODE: Simulate successful add to cart
-      if (DEMO_MODE) {
-        console.log('🎬 DEMO MODE: Simulating add to cart');
-        console.log('Video:', videoTitle);
-        console.log('Price:', videoPrice);
-        
-        // Increment demo cart count
-        demoCartCount++;
-        
-        // Add item to demo cart
-        demoCartItems.push({
-          title: videoTitle,
-          price: videoPrice,
-          quantity: 1,
-          id: Date.now()
-        });
-        
-        // Save to localStorage
-        localStorage.setItem('demoCartCount', demoCartCount.toString());
-        localStorage.setItem('demoCartItems', JSON.stringify(demoCartItems));
-        
-        // Update cart display
-        updateDemoCartDisplay();
-        
-        // Show success state
-        this.classList.remove('loading');
-        this.classList.add('added');
-        this.innerHTML = '<i class="fas fa-check"></i> Added to Cart!';
-        
-        // Show demo notification
-        showDemoNotification(videoTitle, videoPrice);
-        
-        // Dispatch custom event
-        document.dispatchEvent(new CustomEvent('cart:updated', {
-          detail: { 
-            demo: true,
-            item: {
-              title: videoTitle,
-              price: videoPrice,
-              quantity: 1
-            },
-            item_count: demoCartCount
-          }
-        }));
-        
-        // Reset button after 2 seconds
-        setTimeout(() => {
-          this.classList.remove('added');
-          this.innerHTML = originalText;
-        }, 2000);
-        
-        return;
-      }
-      
-      // REAL MODE: Validate product ID
+      // Validate product ID
       if (!productId || productId === '') {
         this.classList.remove('loading');
         this.innerHTML = originalText;
-        alert('Product ID not configured. Please add a product ID in the theme editor or enable DEMO_MODE.');
+        alert('Product ID not configured. Please add a variant ID in the theme editor.');
         return;
       }
       
@@ -751,8 +680,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const numericProductId = parseInt(productId, 10);
       
       console.log('🛒 Adding to cart');
-      console.log('  Product ID (string):', productId);
-      console.log('  Product ID (number):', numericProductId);
+      console.log('  Variant ID (string):', productId);
+      console.log('  Variant ID (number):', numericProductId);
       
       try {
         // Add item to cart using Shopify Cart API (using FormData like the theme does)
@@ -779,7 +708,7 @@ document.addEventListener('DOMContentLoaded', function() {
           // Show specific error message
           let errorMessage = 'Failed to add item to cart.';
           if (response.status === 422) {
-            errorMessage = `Product ID "${productId}" is invalid or the product is unavailable. Please check:\n\n1. The product exists in Shopify\n2. You're using the VARIANT ID (not product ID)\n3. The variant is available and not sold out\n4. The product is published to your Online Store`;
+            errorMessage = `Variant ID "${productId}" is invalid or the product is unavailable. Please check:\n\n1. The product exists in Shopify\n2. You're using the VARIANT ID (not product ID)\n3. The variant is available and not sold out\n4. The product is published to your Online Store`;
           }
           
           throw new Error(errorMessage);
@@ -853,203 +782,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
       }
     });
-  });
-  
-  // Demo notification function
-  function showDemoNotification(title, price) {
-    // Remove existing notification if any
-    const existing = document.querySelector('.demo-notification');
-    if (existing) {
-      existing.remove();
-    }
-    
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = 'demo-notification';
-    notification.innerHTML = `
-      <div class="demo-notification-content">
-        <div class="demo-notification-header">
-          <i class="fas fa-check-circle"></i>
-          <strong>Added to Cart (Demo Mode)</strong>
-        </div>
-        <div class="demo-notification-body">
-          <p><strong>${title}</strong></p>
-          <p>${price}</p>
-        </div>
-        <div class="demo-notification-footer">
-          <small>🎬 This is a demo. No real products were added.</small>
-        </div>
-      </div>
-    `;
-    
-    // Add styles for notification
-    const style = document.createElement('style');
-    style.textContent = `
-      .demo-notification {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-        padding: 20px;
-        max-width: 350px;
-        z-index: 10000;
-        animation: slideIn 0.3s ease;
-      }
-      
-      @keyframes slideIn {
-        from {
-          transform: translateX(400px);
-          opacity: 0;
-        }
-        to {
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
-      
-      .demo-notification-header {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: #48bb78;
-        font-size: 1.1rem;
-        margin-bottom: 12px;
-      }
-      
-      .demo-notification-header i {
-        font-size: 1.5rem;
-      }
-      
-      .demo-notification-body {
-        border-top: 1px solid #e2e8f0;
-        border-bottom: 1px solid #e2e8f0;
-        padding: 12px 0;
-        margin-bottom: 12px;
-      }
-      
-      .demo-notification-body p {
-        margin: 5px 0;
-        color: #2d3748;
-      }
-      
-      .demo-notification-footer {
-        color: #718096;
-        font-style: italic;
-      }
-      
-      @media (max-width: 768px) {
-        .demo-notification {
-          right: 10px;
-          left: 10px;
-          max-width: none;
-        }
-      }
-    `;
-    
-    document.head.appendChild(style);
-    document.body.appendChild(notification);
-    
-    // Auto remove after 4 seconds
-    setTimeout(() => {
-      notification.style.animation = 'slideIn 0.3s ease reverse';
-      setTimeout(() => {
-        notification.remove();
-      }, 300);
-    }, 4000);
-  }
-  
-  // Update demo cart display function
-  function updateDemoCartDisplay() {
-    const cartCountSelectors = [
-      '[ref="cartBubbleCount"]',
-      '.cart-bubble__text-count',
-      '.cart-count',
-      '.cart-icon__count',
-      '[data-cart-count]'
-    ];
-    
-    let cartCount = null;
-    for (const selector of cartCountSelectors) {
-      cartCount = document.querySelector(selector);
-      if (cartCount) break;
-    }
-    
-    if (cartCount) {
-      cartCount.textContent = demoCartCount;
-      cartCount.classList.remove('hidden');
-      
-      const cartBubble = document.querySelector('.cart-bubble');
-      if (cartBubble) {
-        cartBubble.classList.remove('visually-hidden');
-      }
-    }
-  }
-  
-  // Inject demo cart message on cart page
-  function injectDemoCartMessage() {
-    // Check if we're on a cart page
-    const cartPage = document.querySelector('[data-section-type="cart"]') || 
-                     document.querySelector('.cart-page') ||
-                     document.querySelector('cart-drawer');
-    
-    if (!cartPage) return;
-    
-    // Check if cart is empty
-    const emptyCartMessage = document.querySelector('.cart__empty-text, .cart-empty');
-    
-    if (emptyCartMessage && DEMO_MODE && demoCartItems.length > 0) {
-      // Create demo cart message
-      const demoMessage = document.createElement('div');
-      demoMessage.className = 'demo-cart-message';
-      demoMessage.innerHTML = `
-        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 20px; margin: 20px 0; text-align: center;">
-          <h2 style="margin: 0 0 15px 0; font-size: 1.8rem;">
-            <i class="fas fa-film"></i> Demo Mode Active
-          </h2>
-          <p style="margin: 0 0 20px 0; font-size: 1.1rem;">
-            You have ${demoCartCount} demo item${demoCartCount !== 1 ? 's' : ''} in your simulated cart:
-          </p>
-          <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 12px; margin-top: 20px;">
-            ${demoCartItems.map(item => `
-              <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.2);">
-                <span style="font-weight: 600;">${item.title}</span>
-                <span style="font-size: 1.2rem;">${item.price}</span>
-              </div>
-            `).join('')}
-          </div>
-          <p style="margin: 20px 0 0 0; font-size: 0.9rem; opacity: 0.9;">
-            💡 These are demo items only. To add real products, create products in Shopify and add their IDs to the theme editor.
-          </p>
-          <button onclick="localStorage.removeItem('demoCartItems'); localStorage.removeItem('demoCartCount'); location.reload();" 
-                  style="background: white; color: #667eea; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 700; cursor: pointer; margin-top: 15px;">
-            Clear Demo Cart
-          </button>
-        </div>
-      `;
-      
-      emptyCartMessage.parentNode.insertBefore(demoMessage, emptyCartMessage);
-      emptyCartMessage.style.display = 'none';
-    }
-  }
-  
-  // Run demo cart injection
-  if (DEMO_MODE) {
-    injectDemoCartMessage();
-    
-    // Also run when cart drawer opens
-    setTimeout(injectDemoCartMessage, 500);
-    setTimeout(injectDemoCartMessage, 1500);
-  }
-  
-  // Listen for cart updates from other sources
-  document.addEventListener('cart:updated', function(event) {
-    console.log('Cart updated:', event.detail);
-    if (event.detail.demo) {
-      console.log('🎬 Demo cart item added:', event.detail.item);
-      console.log('🎬 Demo cart count:', event.detail.item_count);
-    }
   });
 });
 </script>

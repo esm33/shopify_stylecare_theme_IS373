@@ -15,12 +15,15 @@
         "influencer_1": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/b96c3a162b0b86cab3cc5310780d874a_1c37e04b-a087-4790-b249-55560e3541e2.jpg",
             "influencer_name": "Emma Clean",
             "instagram_handle": "emmaclean",
             "verified": true,
             "rating": 5,
             "style_aesthetic": "Clean Girl, Minimalist, Neutral",
             "description": "Minimalist fashion enthusiast sharing daily outfit inspiration and capsule wardrobe tips for college students.",
+            "typical_shops": "Princess Polly, Edikted, Garage",
+            "price_range": "$$",
             "followers": "150K",
             "profile_link": ""
           }
@@ -28,12 +31,15 @@
         "influencer_2": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/Baggy-PRINT-TSHIRT-AND-JEANS_3513485a-889d-4bad-95c7-d5a2cfb9f382.webp",
             "influencer_name": "Sophie Chic",
             "instagram_handle": "sophiechic",
             "verified": true,
             "rating": 5,
             "style_aesthetic": "Y2K, Streetwear, Bold",
             "description": "Y2K fashion lover bringing back the best trends from the 2000s with a modern, budget-friendly twist.",
+            "typical_shops": "That's So Fetch, Tiger Mist, White Fox Boutique",
+            "price_range": "$$",
             "followers": "280K",
             "profile_link": ""
           }
@@ -41,12 +47,15 @@
         "influencer_3": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/images_dde8196d-2fd6-45c0-9297-913ab3ba7eb3.jpg",
             "influencer_name": "Ava Luxe",
             "instagram_handle": "avaluxe",
             "verified": true,
             "rating": 4,
             "style_aesthetic": "Elegant, Classic, Timeless",
             "description": "Timeless elegance and sophisticated style for the modern woman. Specializing in capsule wardrobes.",
+            "typical_shops": "Revolve, Reformation, Sézane, Aritzia",
+            "price_range": "$$$",
             "followers": "95K",
             "profile_link": ""
           }
@@ -54,12 +63,15 @@
         "influencer_4": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/boho-romantic-trend-308400-1689846947245-main_ca3cb3d7-b3a3-4072-bc6f-c292503b0c34.jpg",
             "influencer_name": "Mia Boheme",
             "instagram_handle": "miaboheme",
             "verified": true,
             "rating": 5,
             "style_aesthetic": "Boho, Earthy, Vintage",
             "description": "Bohemian vibes and vintage finds. Creating unique looks with sustainable and thrifted pieces.",
+            "typical_shops": "Free People, Peppermayo, Urban Outfitters",
+            "price_range": "$$",
             "followers": "210K",
             "profile_link": ""
           }
@@ -67,12 +79,15 @@
         "influencer_5": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/03tpWlJRbMRXSLwGc.jpg",
             "influencer_name": "Zara Street",
             "instagram_handle": "zarastreet",
             "verified": true,
             "rating": 5,
             "style_aesthetic": "Streetwear, Urban, Edgy",
             "description": "Urban streetwear enthusiast mixing high and low fashion for the ultimate college campus looks.",
+            "typical_shops": "White Fox Boutique, Edikted, Princess Polly",
+            "price_range": "$$",
             "followers": "320K",
             "profile_link": ""
           }
@@ -80,13 +95,128 @@
         "influencer_6": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/S985f3705136e4b3d866ef08281a30d21b_1200x1200_bdcb253d-07b0-461e-80af-c1214ea6e308.webp",
             "influencer_name": "Lily Pastel",
             "instagram_handle": "lilypastel",
             "verified": false,
             "rating": 4,
             "style_aesthetic": "Soft Girl, Pastel, Feminine",
             "description": "Soft pastels and feminine silhouettes. Perfect for those who love delicate and dreamy aesthetics.",
+            "typical_shops": "Tiger Mist, That's So Fetch, Peppermayo",
+            "price_range": "$$",
             "followers": "78K",
+            "profile_link": ""
+          }
+        },
+        "influencer_7": {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_image": "shopify://shop_images/0211109205942475a2f3fd6785fd0ba6661f47b7_cmy3657_3.webp",
+            "influencer_name": "Maya Budget",
+            "instagram_handle": "mayabudget",
+            "verified": true,
+            "rating": 5,
+            "style_aesthetic": "Budget-Friendly, Casual, Everyday",
+            "description": "Proving you don't need to break the bank to look amazing. Sharing affordable finds and styling tips.",
+            "typical_shops": "Target, Amazon, Walmart, Old Navy",
+            "price_range": "$",
+            "followers": "425K",
+            "profile_link": ""
+          }
+        },
+        "influencer_8": {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_image": "shopify://shop_images/download_231db0bc-d846-40c3-8487-cde4a58acfc1.jpg",
+            "influencer_name": "Jade Thrift",
+            "instagram_handle": "jadethrift",
+            "verified": true,
+            "rating": 5,
+            "style_aesthetic": "Thrifted, Vintage, Eclectic",
+            "description": "Thrift store queen sharing secondhand gems and sustainable fashion on a student budget.",
+            "typical_shops": "Goodwill, Depop, Poshmark, ThredUp",
+            "price_range": "$",
+            "followers": "185K",
+            "profile_link": ""
+          }
+        },
+        "influencer_9": {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_image": "shopify://shop_images/images_12cfb9b2-743a-4a26-975e-0c2f70e23b98.jpg",
+            "influencer_name": "Sienna Sporty",
+            "instagram_handle": "siennasporty",
+            "verified": false,
+            "rating": 4,
+            "style_aesthetic": "Athleisure, Active, Comfortable",
+            "description": "Athleisure enthusiast styling workout wear for campus life. Comfort meets style on a budget.",
+            "typical_shops": "Amazon Essentials, Target, Walmart, TJ Maxx",
+            "price_range": "$",
+            "followers": "142K",
+            "profile_link": ""
+          }
+        },
+        "influencer_10": {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_image": "shopify://shop_images/cottagecore-outfits-298325-1646341952908-main_b83fd44e-26a9-4ff0-a26f-0d89ff6d15b2.jpg",
+            "influencer_name": "Chloe Cottage",
+            "instagram_handle": "chloecottage",
+            "verified": true,
+            "rating": 5,
+            "style_aesthetic": "Cottagecore, Romantic, Whimsical",
+            "description": "Living the cottagecore dream with affordable pieces. Flowy dresses and whimsical vibes.",
+            "typical_shops": "Shein, Amazon, Target, Ross",
+            "price_range": "$",
+            "followers": "268K",
+            "profile_link": ""
+          }
+        },
+        "influencer_11": {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_image": "shopify://shop_images/a63cdcbdca60d8e5ab9631f74cdac1bf_03b37b38-6d0e-4859-92e3-9a1dde845a89.jpg",
+            "influencer_name": "Nora Grunge",
+            "instagram_handle": "noragrunge",
+            "verified": false,
+            "rating": 4,
+            "style_aesthetic": "Grunge, Alternative, Dark",
+            "description": "Alternative style on a college budget. Band tees, plaid, and edgy accessories for under $20.",
+            "typical_shops": "Hot Topic, Amazon, Walmart, Forever 21",
+            "price_range": "$",
+            "followers": "95K",
+            "profile_link": ""
+          }
+        },
+        "influencer_12": {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_image": "shopify://shop_images/preppy-aesthetic-outfits-2.webp",
+            "influencer_name": "Leah Preppy",
+            "instagram_handle": "leahpreppy",
+            "verified": true,
+            "rating": 5,
+            "style_aesthetic": "Preppy, Classic, Polished",
+            "description": "Preppy style with a budget twist. Cardigans, collars, and classic pieces from affordable retailers.",
+            "typical_shops": "Target, Old Navy, Gap, Amazon",
+            "price_range": "$",
+            "followers": "310K",
+            "profile_link": ""
+          }
+        },
+        "influencer_13": {
+          "type": "influencer_card",
+          "settings": {
+            "influencer_image": "shopify://shop_images/GettyImages-1132881730-bf9ba26b28a542498eea8330178dd2a5.jpg",
+            "influencer_name": "Tessa Trendy",
+            "instagram_handle": "tessatrendy",
+            "verified": true,
+            "rating": 4,
+            "style_aesthetic": "Fast Fashion, Trendy, Affordable",
+            "description": "Staying on trend without the designer price tag. Mixing Shein finds with basics for viral looks.",
+            "typical_shops": "Shein, H&M, Forever 21, Amazon Fashion",
+            "price_range": "$",
+            "followers": "520K",
             "profile_link": ""
           }
         }
@@ -97,7 +227,14 @@
         "influencer_3",
         "influencer_4",
         "influencer_5",
-        "influencer_6"
+        "influencer_6",
+        "influencer_7",
+        "influencer_8",
+        "influencer_9",
+        "influencer_10",
+        "influencer_11",
+        "influencer_12",
+        "influencer_13"
       ],
       "settings": {
         "section_title": "Our Style Influencers",

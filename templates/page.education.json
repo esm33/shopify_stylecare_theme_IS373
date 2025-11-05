@@ -1,0 +1,281 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "education_hub": {
+      "type": "stylecare-education-hub",
+      "blocks": {
+        "article_1": {
+          "type": "article_card",
+          "settings": {
+            "category": "Wardrobe Basics",
+            "category_icon": "fa-shirt",
+            "article_title": "Essential Wardrobe Staples Every Girl Needs",
+            "article_excerpt": "Build a versatile closet foundation with these timeless pieces that work for any occasion.",
+            "reading_time": "8",
+            "article_link": ""
+          }
+        },
+        "article_2": {
+          "type": "article_card",
+          "settings": {
+            "category": "Color Theory",
+            "category_icon": "fa-palette",
+            "article_title": "Understanding Color Wheels & Seasonal Palettes",
+            "article_excerpt": "Master the art of color matching and discover which color seasons complement your natural tones.",
+            "reading_time": "10",
+            "article_link": ""
+          }
+        },
+        "article_3": {
+          "type": "article_card",
+          "settings": {
+            "category": "Styling Tips",
+            "category_icon": "fa-wand-magic-sparkles",
+            "article_title": "How to Pair Colors Like a Pro",
+            "article_excerpt": "Learn foolproof color combinations and avoid common clashing mistakes with this comprehensive guide.",
+            "reading_time": "6",
+            "article_link": ""
+          }
+        },
+        "article_4": {
+          "type": "article_card",
+          "settings": {
+            "category": "Aesthetics",
+            "category_icon": "fa-sparkles",
+            "article_title": "Finding Your Signature Aesthetic",
+            "article_excerpt": "Explore popular fashion aesthetics from clean girl to cottagecore and find your perfect style match.",
+            "reading_time": "12",
+            "article_link": ""
+          }
+        },
+        "article_5": {
+          "type": "article_card",
+          "settings": {
+            "category": "Footwear",
+            "category_icon": "fa-shoe-prints",
+            "article_title": "Complete Guide to Shoe Types & Styling",
+            "article_excerpt": "From sneakers to heels, learn which shoes work best for different outfits and occasions.",
+            "reading_time": "7",
+            "article_link": ""
+          }
+        },
+        "article_6": {
+          "type": "article_card",
+          "settings": {
+            "category": "DIY Skills",
+            "category_icon": "fa-scissors",
+            "article_title": "Beginner's Guide to Basic Sewing",
+            "article_excerpt": "Start your sewing journey with simple techniques to hem, repair, and customize your clothes.",
+            "reading_time": "15",
+            "article_link": ""
+          }
+        },
+        "video_1": {
+          "type": "free_video",
+          "settings": {
+            "video_category": "Color Theory",
+            "video_category_icon": "fa-palette",
+            "video_title": "Color Theory Basics: Warm vs Cool Tones",
+            "video_description": "Learn how to identify your undertones and choose colors that make you glow.",
+            "video_duration": "8:32",
+            "views": "42.5K",
+            "difficulty_level": "Beginner",
+            "video_link": ""
+          }
+        },
+        "video_2": {
+          "type": "free_video",
+          "settings": {
+            "video_category": "Wardrobe Essentials",
+            "video_category_icon": "fa-shirt",
+            "video_title": "Building a Capsule Wardrobe on a Budget",
+            "video_description": "Create a versatile 30-piece wardrobe that works for college life without breaking the bank.",
+            "video_duration": "15:20",
+            "views": "128K",
+            "difficulty_level": "Beginner",
+            "video_link": ""
+          }
+        },
+        "video_3": {
+          "type": "free_video",
+          "settings": {
+            "video_category": "Styling Tutorial",
+            "video_category_icon": "fa-video",
+            "video_title": "5 Ways to Style White Sneakers",
+            "video_description": "Transform your basic white sneakers into the foundation of multiple outfits.",
+            "video_duration": "10:45",
+            "views": "89.3K",
+            "difficulty_level": "Beginner",
+            "video_link": ""
+          }
+        },
+        "video_4": {
+          "type": "free_video",
+          "settings": {
+            "video_category": "Aesthetic Guide",
+            "video_category_icon": "fa-sparkles",
+            "video_title": "Exploring Different Fashion Aesthetics",
+            "video_description": "A visual tour of popular aesthetics: Y2K, Clean Girl, Cottagecore, Dark Academia & more.",
+            "video_duration": "18:15",
+            "views": "215K",
+            "difficulty_level": "Beginner",
+            "video_link": ""
+          }
+        },
+        "video_5": {
+          "type": "free_video",
+          "settings": {
+            "video_category": "Quick Tips",
+            "video_category_icon": "fa-lightbulb",
+            "video_title": "How to Mix Patterns Without Looking Messy",
+            "video_description": "Master the art of pattern mixing with these simple rules and examples.",
+            "video_duration": "7:28",
+            "views": "56.7K",
+            "difficulty_level": "Intermediate",
+            "video_link": ""
+          }
+        },
+        "video_6": {
+          "type": "free_video",
+          "settings": {
+            "video_category": "Shoe Styling",
+            "video_category_icon": "fa-shoe-prints",
+            "video_title": "Choosing the Right Shoes for Every Outfit",
+            "video_description": "Never wonder which shoes to wear again with this comprehensive footwear guide.",
+            "video_duration": "12:10",
+            "views": "73.2K",
+            "difficulty_level": "Beginner",
+            "video_link": ""
+          }
+        },
+        "premium_1": {
+          "type": "premium_video",
+          "settings": {
+            "premium_category": "Masterclass",
+            "premium_category_icon": "fa-crown",
+            "premium_title_text": "Professional Sewing Techniques Masterclass",
+            "premium_description": "Learn industry secrets for tailoring, alterations, and garment construction from a professional designer.",
+            "premium_duration": "2:15:00",
+            "instructor_name": "Sarah Martinez",
+            "premium_level": "Advanced",
+            "video_price": "$49.99",
+            "product_id": "62576882942321"
+          }
+        },
+        "premium_2": {
+          "type": "premium_video",
+          "settings": {
+            "premium_category": "Expert Course",
+            "premium_category_icon": "fa-graduation-cap",
+            "premium_title_text": "Complete Color Analysis Certification",
+            "premium_description": "Become a color theory expert with this comprehensive course covering all four seasonal palettes.",
+            "premium_duration": "3:45:00",
+            "instructor_name": "Jessica Chen",
+            "premium_level": "Intermediate",
+            "video_price": "$79.99",
+            "product_id": "62576884842865"
+          }
+        },
+        "premium_3": {
+          "type": "premium_video",
+          "settings": {
+            "premium_category": "Masterclass",
+            "premium_category_icon": "fa-crown",
+            "premium_title_text": "Personal Styling Business Blueprint",
+            "premium_description": "Turn your fashion passion into a business. Learn to style clients and build your brand.",
+            "premium_duration": "4:20:00",
+            "instructor_name": "Amanda Foster",
+            "premium_level": "Advanced",
+            "video_price": "$99.99",
+            "product_id": "62576886153585"
+          }
+        },
+        "premium_4": {
+          "type": "premium_video",
+          "settings": {
+            "premium_category": "Workshop",
+            "premium_category_icon": "fa-scissors",
+            "premium_title_text": "Advanced Pattern Making & Design",
+            "premium_description": "Design and create your own clothing patterns from scratch with expert guidance.",
+            "premium_duration": "5:00:00",
+            "instructor_name": "Rachel Kim",
+            "premium_level": "Advanced",
+            "video_price": "$129.99",
+            "product_id": "62576886645105"
+          }
+        },
+        "premium_5": {
+          "type": "premium_video",
+          "settings": {
+            "premium_category": "Exclusive",
+            "premium_category_icon": "fa-star",
+            "premium_title_text": "Luxury Brand Styling Secrets",
+            "premium_description": "Discover how high-end stylists create runway-worthy looks and how to adapt them for everyday wear.",
+            "premium_duration": "1:50:00",
+            "instructor_name": "Victoria Laurent",
+            "premium_level": "Intermediate",
+            "video_price": "$69.99",
+            "product_id": "62576887234929"
+          }
+        },
+        "premium_6": {
+          "type": "premium_video",
+          "settings": {
+            "premium_category": "Course",
+            "premium_category_icon": "fa-book",
+            "premium_title_text": "Sustainable Fashion & Upcycling Workshop",
+            "premium_description": "Transform thrifted pieces into trendy outfits while learning eco-friendly fashion practices.",
+            "premium_duration": "2:30:00",
+            "instructor_name": "Maya Green",
+            "premium_level": "Intermediate",
+            "video_price": "$59.99",
+            "product_id": "62576887660913"
+          }
+        }
+      },
+      "block_order": [
+        "article_1",
+        "article_2",
+        "article_3",
+        "article_4",
+        "article_5",
+        "article_6",
+        "video_1",
+        "video_2",
+        "video_3",
+        "video_4",
+        "video_5",
+        "video_6",
+        "premium_1",
+        "premium_2",
+        "premium_3",
+        "premium_4",
+        "premium_5",
+        "premium_6"
+      ],
+      "settings": {
+        "show_hero": true,
+        "hero_banner_image": "shopify://shop_images/9df83591ca010b598be0d6ba367b64db.jpg",
+        "hero_title": "Fashion Education Center",
+        "hero_subtitle": "Master the fundamentals of fashion with our curated articles, video tutorials, and expert-led premium courses",
+        "articles_title": "Essential Fashion Guides",
+        "articles_description": "In-depth articles covering everything from color theory to wardrobe essentials",
+        "videos_title": "Free Video Tutorials",
+        "videos_description": "Learn at your own pace with our collection of free educational videos",
+        "premium_title": "Premium Masterclasses",
+        "premium_description": "Unlock expert-level tutorials and comprehensive courses to elevate your fashion knowledge"
+      }
+    }
+  },
+  "order": [
+    "education_hub"
+  ]
+}

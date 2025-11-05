@@ -1,88 +1,181 @@
 {% comment %}
   FAQ Section - StyleCare
-  Accordion-style frequently asked questions
+  Split layout with banner image and accordion FAQs
 {% endcomment %}
 
 <section class="faq-section" id="faq-{{ section.id }}">
-  <div class="container">
-    <div class="section-header text-center">
-      {% if section.settings.title != blank %}
-        <h2 class="section-title">{{ section.settings.title }}</h2>
-      {% endif %}
-      {% if section.settings.subtitle != blank %}
-        <p class="section-subtitle">{{ section.settings.subtitle }}</p>
-      {% endif %}
+  <div class="faq-split-container">
+    <!-- Left Half - Banner with Image or Gradient -->
+    <div class="faq-banner" 
+         {% if section.settings.banner_image %}
+           style="background-image: url('{{ section.settings.banner_image | image_url: width: 1200 }}');"
+         {% endif %}>
+      <div class="faq-banner-overlay">
+        <div class="faq-icon">
+          <i class="fas fa-question-circle"></i>
+        </div>
+        {% if section.settings.title != blank %}
+          <h2 class="faq-banner-title">{{ section.settings.title }}</h2>
+        {% endif %}
+        {% if section.settings.subtitle != blank %}
+          <p class="faq-banner-subtitle">{{ section.settings.subtitle }}</p>
+        {% endif %}
+      </div>
     </div>
 
-    <div class="faq-container">
-      {% for block in section.blocks %}
-        <div class="faq-item" {{ block.shopify_attributes }}>
-          <button class="faq-question" aria-expanded="false" type="button">
-            <span>{{ block.settings.question }}</span>
-            <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-content">
-              {{ block.settings.answer }}
+    <!-- Right Half - FAQ Accordion -->
+    <div class="faq-content">
+      <div class="faq-container">
+        {% for block in section.blocks %}
+          <div class="faq-item" {{ block.shopify_attributes }}>
+            <button class="faq-question" aria-expanded="false" type="button">
+              <span>{{ block.settings.question }}</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                {{ block.settings.answer }}
+              </div>
             </div>
           </div>
-        </div>
-      {% endfor %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 </section>
 
 {% style %}
   .faq-section {
-    padding: var(--space-3xl) 0;
+    padding: 0;
+    background: white;
+  }
+
+  .faq-split-container {
+    display: flex;
+    min-height: 600px;
+  }
+
+  /* Left Half - Banner */
+  .faq-banner {
+    flex: 1;
+    background: linear-gradient(135deg, 
+      #667eea 0%, 
+      #764ba2 50%,
+      #f093fb 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .faq-banner-overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    padding: 60px 40px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    width: 100%;
+    height: 100%;
+  }
+
+  .faq-icon {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .faq-banner-title {
+    font-size: clamp(2rem, 4vw, 3rem) !important;
+    font-weight: 700 !important;
+    color: white;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.02em !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+  }
+
+  .faq-banner-subtitle {
+    font-size: 1.1rem !important;
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 400px;
+    margin: 0;
+    line-height: 1.6 !important;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    font-weight: 400 !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+  }
+
+  /* Right Half - Content */
+  .faq-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 60px 40px;
     background: white;
   }
 
   .faq-container {
-    max-width: 800px;
-    margin: var(--space-2xl) auto 0;
+    width: 100%;
+    max-width: 600px;
   }
 
   .faq-item {
     background: white;
-    border: 2px solid var(--blush-100);
-    border-radius: var(--radius-lg);
-    margin-bottom: var(--space-md);
+    border: 2px solid #f0f0f0;
+    border-radius: 12px;
+    margin-bottom: 15px;
     overflow: hidden;
-    transition: all var(--transition-base);
+    transition: all 0.3s ease;
   }
 
   .faq-item:hover {
-    border-color: var(--blush-300);
-    box-shadow: var(--shadow-md);
+    border-color: var(--color-blush, #f4a8b8);
+    box-shadow: 0 4px 15px rgba(244, 168, 184, 0.15);
   }
 
   .faq-question {
     width: 100%;
-    padding: var(--space-lg) var(--space-xl);
+    padding: 20px 25px;
     background: transparent;
     border: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: var(--space-md);
+    gap: 15px;
     cursor: pointer;
     text-align: left;
-    font-size: var(--text-lg);
-    font-weight: var(--font-weight-semibold);
-    color: var(--mauve-800);
-    transition: all var(--transition-base);
-    font-family: var(--font-display);
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    color: var(--color-charcoal, #2d2d2d);
+    transition: all 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+    letter-spacing: -0.01em !important;
+    line-height: 1.5 !important;
   }
 
   .faq-question:hover {
-    color: var(--blush-600);
+    color: var(--color-rose, #e88ea7);
   }
 
   .faq-question i {
-    font-size: var(--text-base);
-    color: var(--blush-500);
-    transition: transform var(--transition-base);
+    font-size: 0.9rem;
+    color: var(--color-blush, #f4a8b8);
+    transition: transform 0.3s ease;
     flex-shrink: 0;
   }
 
@@ -93,7 +186,7 @@
   .faq-answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s var(--easing-smooth);
+    transition: max-height 0.3s ease;
   }
 
   .faq-item.active .faq-answer {
@@ -101,28 +194,73 @@
   }
 
   .faq-answer-content {
-    padding: 0 var(--space-xl) var(--space-lg);
-    color: var(--mauve-700);
-    line-height: 1.7;
+    padding: 0 25px 20px;
+    color: var(--color-grey, #666);
+    line-height: 1.8 !important;
+    font-size: 1rem !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+  }
+
+  .faq-answer-content p {
+    margin: 0 0 12px 0;
+    font-size: 1rem !important;
+    line-height: 1.8 !important;
   }
 
   .faq-answer-content p:last-child {
     margin-bottom: 0;
   }
 
+  /* Responsive Design */
+  @media (max-width: 968px) {
+    .faq-split-container {
+      flex-direction: column;
+    }
+
+    .faq-banner {
+      min-height: 300px;
+    }
+
+    .faq-content {
+      padding: 50px 30px;
+    }
+
+    .faq-banner-title {
+      font-size: 2.2rem;
+    }
+
+    .faq-banner-subtitle {
+      font-size: 1rem;
+    }
+  }
+
   @media (max-width: 768px) {
-    .faq-section {
-      padding: var(--space-2xl) 0;
+    .faq-content {
+      padding: 40px 20px;
     }
 
     .faq-question {
-      padding: var(--space-md) var(--space-lg);
-      font-size: var(--text-base);
+      padding: 15px 20px;
+      font-size: 1rem;
     }
 
     .faq-answer-content {
-      padding: 0 var(--space-lg) var(--space-md);
-      font-size: var(--text-sm);
+      padding: 0 20px 15px;
+      font-size: 0.95rem;
+    }
+
+    .faq-icon {
+      width: 80px;
+      height: 80px;
+      font-size: 2.5rem;
+    }
+
+    .faq-banner-title {
+      font-size: 1.8rem;
+    }
+
+    .faq-banner-subtitle {
+      font-size: 0.95rem;
     }
   }
 {% endstyle %}
@@ -133,6 +271,12 @@
   "tag": "section",
   "class": "section-faq",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner Image",
+      "info": "Recommended size: 1200x800px. If no image is selected, a gradient will be used."
+    },
     {
       "type": "text",
       "id": "title",

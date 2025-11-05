@@ -210,6 +210,7 @@
         "testimonial_1": {
           "type": "testimonial",
           "settings": {
+            "banner_image": "shopify://shop_images/download.jpg",
             "rating": 5,
             "quote": "StyleCare transformed my wardrobe! The quiz matched me with pieces I actually love wearing every day.",
             "author_name": "Emma Rodriguez",
@@ -219,9 +220,20 @@
         "testimonial_2": {
           "type": "testimonial",
           "settings": {
+            "banner_image": "shopify://shop_images/download_0b86f3c8-07b0-4c85-9035-5d2239a46463.jpg",
             "rating": 5,
             "quote": "Finally found my clean girl aesthetic. The recommendations are spot-on and totally budget-friendly!",
             "author_name": "Madison Chen",
+            "author_location": "Boston, MA"
+          }
+        },
+        "testimonial_ftt84d": {
+          "type": "testimonial",
+          "settings": {
+            "banner_image": "shopify://shop_images/download_57fac4e1-13b2-4031-9e65-8bdcd9ca506f.jpg",
+            "rating": 5,
+            "quote": "Amazing service! They helped me find my perfect style.",
+            "author_name": "Sarah Johnson",
             "author_location": "Boston, MA"
           }
         },
@@ -238,6 +250,7 @@
       "block_order": [
         "testimonial_1",
         "testimonial_2",
+        "testimonial_ftt84d",
         "testimonial_3"
       ],
       "settings": {

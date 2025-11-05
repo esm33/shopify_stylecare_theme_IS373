@@ -15,6 +15,7 @@
         "influencer_1": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/b96c3a162b0b86cab3cc5310780d874a.jpg",
             "influencer_name": "Emma Clean",
             "instagram_handle": "emmaclean",
             "verified": true,
@@ -30,6 +31,7 @@
         "influencer_2": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/Baggy-PRINT-TSHIRT-AND-JEANS.webp",
             "influencer_name": "Sophie Chic",
             "instagram_handle": "sophiechic",
             "verified": true,
@@ -45,6 +47,7 @@
         "influencer_3": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/images_9cfac6bc-87d9-4d9d-a656-4eeab842a629.jpg",
             "influencer_name": "Ava Luxe",
             "instagram_handle": "avaluxe",
             "verified": true,

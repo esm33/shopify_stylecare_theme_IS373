@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "contact_hub": {
@@ -74,6 +83,7 @@
       ],
       "settings": {
         "show_banner": true,
+        "banner_image": "shopify://shop_images/Add-a-subheading-5-1.png",
         "banner_overlay": 40,
         "banner_title": "CONTACT US",
         "banner_subtitle": "We're here to help you find your perfect style",

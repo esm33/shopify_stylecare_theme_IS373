@@ -63,6 +63,7 @@
         "influencer_4": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/boho-romantic-trend-308400-1689846947245-main.jpg",
             "influencer_name": "Mia Boheme",
             "instagram_handle": "miaboheme",
             "verified": true,
@@ -78,6 +79,7 @@
         "influencer_5": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/21bc6bc14776624f0067fe10a6898d19.jpg",
             "influencer_name": "Zara Street",
             "instagram_handle": "zarastreet",
             "verified": true,

@@ -210,6 +210,7 @@
         "testimonial_1": {
           "type": "testimonial",
           "settings": {
+            "banner_image": "shopify://shop_images/images.jpg",
             "rating": 5,
             "quote": "StyleCare transformed my wardrobe! The quiz matched me with pieces I actually love wearing every day.",
             "author_name": "Emma Rodriguez",
@@ -219,6 +220,7 @@
         "testimonial_2": {
           "type": "testimonial",
           "settings": {
+            "banner_image": "shopify://shop_images/yAVqgboksGdJKzCRAdcGN3.jpg",
             "rating": 5,
             "quote": "Finally found my clean girl aesthetic. The recommendations are spot-on and totally budget-friendly!",
             "author_name": "Madison Chen",

@@ -95,6 +95,7 @@
         "influencer_6": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/S985f3705136e4b3d866ef08281a30d21b_1200x1200_21006b3d-a609-4565-bd3d-5fdc429aca5c.webp",
             "influencer_name": "Lily Pastel",
             "instagram_handle": "lilypastel",
             "verified": false,
@@ -110,6 +111,7 @@
         "influencer_7": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/2091df7311572c4ceea98146471898a9.jpg",
             "influencer_name": "Maya Budget",
             "instagram_handle": "mayabudget",
             "verified": true,
@@ -125,6 +127,7 @@
         "influencer_8": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/download_e24f83d2-4b30-4c61-ad1d-33afdefe0406.jpg",
             "influencer_name": "Jade Thrift",
             "instagram_handle": "jadethrift",
             "verified": true,
@@ -140,6 +143,7 @@
         "influencer_9": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/sporty_outfits.webp",
             "influencer_name": "Sienna Sporty",
             "instagram_handle": "siennasporty",
             "verified": false,
@@ -155,6 +159,7 @@
         "influencer_10": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/cottagecore-outfits-298325-1646341952908-main.jpg",
             "influencer_name": "Chloe Cottage",
             "instagram_handle": "chloecottage",
             "verified": true,
@@ -170,6 +175,7 @@
         "influencer_11": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/a63cdcbdca60d8e5ab9631f74cdac1bf.jpg",
             "influencer_name": "Nora Grunge",
             "instagram_handle": "noragrunge",
             "verified": false,
@@ -185,6 +191,7 @@
         "influencer_12": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/preppy-outfit.webp",
             "influencer_name": "Leah Preppy",
             "instagram_handle": "leahpreppy",
             "verified": true,
@@ -200,6 +207,7 @@
         "influencer_13": {
           "type": "influencer_card",
           "settings": {
+            "influencer_image": "shopify://shop_images/1_-0h_sSFIZ9R7z4QikRHcMQ.jpg",
             "influencer_name": "Tessa Trendy",
             "instagram_handle": "tessatrendy",
             "verified": true,

@@ -230,6 +230,7 @@
         "testimonial_3": {
           "type": "testimonial",
           "settings": {
+            "banner_image": "shopify://shop_images/winter.jpg",
             "rating": 5,
             "quote": "Love how easy it is to shop my capsule. Everything coordinates perfectly and I get compliments all the time!",
             "author_name": "Olivia Taylor",

@@ -717,49 +717,33 @@ document.addEventListener('DOMContentLoaded', function() {
         const data = await response.json();
         console.log('✅ Item added to cart:', data);
         
-        // Update cart count if cart icon exists
-        const cartCountSelectors = [
-          '[ref="cartBubbleCount"]',
-          '.cart-bubble__text-count',
-          '.cart-count',
-          '.cart-icon__count',
-          '[data-cart-count]'
-        ];
-        
-        let cartCount = null;
-        for (const selector of cartCountSelectors) {
-          cartCount = document.querySelector(selector);
-          if (cartCount) break;
-        }
-        
-        if (cartCount) {
-          // Fetch updated cart to get total item count
-          const cartResponse = await fetch('/cart.js');
-          const cart = await cartResponse.json();
-          cartCount.textContent = cart.item_count;
-          cartCount.classList.remove('hidden');
-          
-          const cartBubble = document.querySelector('.cart-bubble');
-          if (cartBubble) {
-            cartBubble.classList.remove('visually-hidden');
-          }
-        }
-        
         // Show success state
         this.classList.remove('loading');
         this.classList.add('added');
         this.innerHTML = '<i class="fas fa-check"></i> Added to Cart!';
+        
+        // Dispatch the theme's CartAddEvent to trigger all cart updates
+        // This will automatically update the cart icon, drawer, and all other cart components
+        document.dispatchEvent(new CustomEvent('cart:update', {
+          bubbles: true,
+          detail: {
+            resource: data,
+            sourceId: 'education-hub',
+            data: {
+              didError: false,
+              source: 'education-hub',
+              productId: productId,
+              variantId: numericProductId,
+              itemCount: data.item_count || 1
+            }
+          }
+        }));
         
         // Trigger cart drawer to open if it exists
         const cartDrawer = document.querySelector('cart-drawer');
         if (cartDrawer && typeof cartDrawer.open === 'function') {
           cartDrawer.open();
         }
-        
-        // Dispatch custom event for other cart components
-        document.dispatchEvent(new CustomEvent('cart:updated', {
-          detail: { cart: data }
-        }));
         
         // Reset button after 2 seconds
         setTimeout(() => {

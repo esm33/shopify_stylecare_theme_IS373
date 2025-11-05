@@ -755,16 +755,14 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log('  Product ID (number):', numericProductId);
       
       try {
-        // Add item to cart using Shopify Cart API
+        // Add item to cart using Shopify Cart API (using FormData like the theme does)
+        const formData = new FormData();
+        formData.append('id', numericProductId);
+        formData.append('quantity', '1');
+        
         const response = await fetch('/cart/add.js', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            id: numericProductId,
-            quantity: 1
-          })
+          body: formData
         });
         
         if (!response.ok) {
@@ -774,13 +772,14 @@ document.addEventListener('DOMContentLoaded', function() {
             status: response.status,
             statusText: response.statusText,
             productId: productId,
+            numericProductId: numericProductId,
             error: errorData
           });
           
           // Show specific error message
           let errorMessage = 'Failed to add item to cart.';
           if (response.status === 422) {
-            errorMessage = `Product ID "${productId}" is invalid or the product is unavailable. Please check:\n\n1. The product exists in Shopify\n2. The variant ID is correct\n3. The product is not sold out or disabled`;
+            errorMessage = `Product ID "${productId}" is invalid or the product is unavailable. Please check:\n\n1. The product exists in Shopify\n2. You're using the VARIANT ID (not product ID)\n3. The variant is available and not sold out\n4. The product is published to your Online Store`;
           }
           
           throw new Error(errorMessage);
